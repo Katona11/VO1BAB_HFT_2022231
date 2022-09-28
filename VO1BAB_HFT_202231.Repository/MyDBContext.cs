@@ -29,11 +29,24 @@ namespace VO1BAB_HFT_202231.Repository
         {
 
 
-            modelBuilder.Entity<Cars>(cars => cars
-            .HasOne(x => x.Owner)
-            .WithMany(x => x.RentCar)
-            .HasForeignKey(x => x.EmployeesId)
-            .OnDelete(DeleteBehavior.Cascade));
+            //modelBuilder.Entity<Employees>(emplyes => emplyes
+            //.HasMany(t=>t.RentCar).WithOne(t=>t.Owner).
+            
+
+            
+
+
+            //modelBuilder.Entity<Cars>()
+            //.HasMany(x => x.Owner)
+            //.WithMany(x => x.RentCar)
+            //.UsingEntity<Rents>(
+            //x=> x.HasOne(t=>t.CarId).WithMany().HasForeignKey(t=>t.RentcarId).OnDelete(DeleteBehavior.Cascade),
+            //x=> x.HasOne
+           
+            
+               
+           
+
 
 
 

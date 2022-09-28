@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VO1BAB_HFT_202231.Models
 {
@@ -6,7 +9,9 @@ namespace VO1BAB_HFT_202231.Models
     {
         public string Brand { get; set; }
 
-        public int CarsID { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int RentcarId { get; set; }
 
         public string   Type { get; set; }
 
@@ -16,21 +21,26 @@ namespace VO1BAB_HFT_202231.Models
 
         public int PerformanceInHP { get; set; }
 
-        public int EmployeesId { get; set; }
+        //public int EmployeesId { get; set; }
 
-        public virtual Employees Owner { get; set; }
+        public virtual ICollection<Employees> Owner { get; set; }
 
         public Cars(string path)
         {
             string[] splitarray = path.Split(",");
             Brand = splitarray[0];
-            CarsID = int.Parse(splitarray[1]);
+            RentcarId = int.Parse(splitarray[1]);
             Type = splitarray[2];
             LicensePlateNumber = splitarray[3];
             Year = int.Parse(splitarray[4]);
             PerformanceInHP = int.Parse(splitarray[4]);
-            EmployeesId = int.Parse(splitarray[5]);
-            
+            //EmployeesId = int.Parse(splitarray[5]);
+            Owner = new HashSet<Employees>();
+
+        }
+        public Cars()
+        {
+            Owner = new HashSet<Employees>();
         }
     }
 }
