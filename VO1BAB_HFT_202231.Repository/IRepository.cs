@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VO1BAB_HFT_202231.Repository
 {
-    interface IRepository<T> where T:class
+    public interface IRepository<T> where T:class
     {
         T Read(int id);
 
@@ -16,6 +16,6 @@ namespace VO1BAB_HFT_202231.Repository
 
         void Delete(int id);
 
-        void Update(int id);
+        void Update(T item);
     }
 }
