@@ -12,7 +12,7 @@ namespace VO1BAB_HFT_202231.Models
 
         public int EmployeesId { get; set; }
 
-        public int Class { get; set; }
+        public string ClassName { get; set; }
 
         public string PhoneNumer { get; set; }
 
@@ -20,6 +20,23 @@ namespace VO1BAB_HFT_202231.Models
 
         public int RentCarId { get; set; }
 
-        public ICollection<Cars> RentCar { get; set; }
+        public virtual ICollection<Cars> RentCar { get; set; }
+
+        public Employees()
+        {
+            RentCar = new HashSet<Cars>();
+        }
+
+        public Employees(string path)
+        {
+            string[] splitarray = path.Split(",");
+            Name = splitarray[0];
+            EmployeesId = int.Parse(splitarray[1]);
+            ClassName = splitarray[2];
+            PhoneNumer = splitarray[3];
+            DateOfBirth = splitarray[4];
+            RentCarId = int.Parse(splitarray[5]);
+           
+        }
     }
 }

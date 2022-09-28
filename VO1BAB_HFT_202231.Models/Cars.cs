@@ -18,7 +18,7 @@ namespace VO1BAB_HFT_202231.Models
 
         public int EmployeesId { get; set; }
 
-        public Employees Owner { get; set; }
+        public virtual Employees Owner { get; set; }
 
         public Cars(string path)
         {

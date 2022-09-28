@@ -17,9 +17,11 @@ namespace VO1BAB_HFT_202231.Models
 
         public int EmployeesID{ get; set; }
 
-        public Cars CarId { get; set; }
+        public virtual Cars CarId { get; set; }
 
-        public Employees Employees { get; set; }
+        public virtual Employees Employees { get; set; }
+
+
 
 
     }
