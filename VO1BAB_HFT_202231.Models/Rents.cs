@@ -12,9 +12,14 @@ namespace VO1BAB_HFT_202231.Models
 
         public string RentTime { get; set; }
 
+
+        public int RentcarId { get; set; }
+
+        public int EmployeesID{ get; set; }
+
         public Cars CarId { get; set; }
 
-        public Employees EmployeesId { get; set; }
+        public Employees Employees { get; set; }
 
 
     }

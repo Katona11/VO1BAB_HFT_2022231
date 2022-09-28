@@ -18,6 +18,8 @@ namespace VO1BAB_HFT_202231.Models
 
         public string DateOfBirth { get; set; }
 
-        public ICollection<Cars> RentCarID { get; set; }
+        public int RentCarId { get; set; }
+
+        public ICollection<Cars> RentCar { get; set; }
     }
 }
