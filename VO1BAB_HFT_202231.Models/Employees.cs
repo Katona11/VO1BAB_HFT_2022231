@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VO1BAB_HFT_202231.Models
 {
-    class Employees
+    public class Employees
     {
         public string Name { get; set; }
 
