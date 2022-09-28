@@ -9,7 +9,14 @@ namespace VO1BAB_HFT_202231.Repository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
+        
         protected MyDBContext ctx;
+
+        protected Repository(MyDBContext ctx)
+        {
+            this.ctx = ctx;
+        }
+
         public void Create(T item)
         {
             ctx.Set<T>().Add(item);
