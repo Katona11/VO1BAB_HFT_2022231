@@ -9,14 +9,22 @@ namespace VO1BAB_HFT_202231.Repository
 {
     public class CarsRepository : Repository<Cars>
     {
+        public CarsRepository(MyDBContext ctx) : base(ctx)
+        {
+        }
+
         public override Cars Read(int id)
         {
-            return 
+            return this.ctx.cars.FirstOrDefault(t => t.CarsID == id);
         }
 
         public override void Update(Cars id)
         {
-            throw new NotImplementedException();
+            var olditem = Read(id.CarsID);
+            foreach (var item in olditem.GetType().GetProperties())
+            {
+                item.SetValue(olditem, item.GetValue(id));
+            }
         }
     }
 }
