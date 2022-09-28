@@ -25,6 +25,31 @@ namespace VO1BAB_HFT_202231.Repository
             }
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+
+
+
+
+            modelBuilder.Entity<Cars>().HasData(new Cars[]
+            {
+
+            });
+
+             modelBuilder.Entity<Employees>().HasData(new Employees[]
+            {
+
+            });
+
+            modelBuilder.Entity<Rents>().HasData(new Rents[]
+           {
+
+           });
+
+
+        }
+
 
 
 
