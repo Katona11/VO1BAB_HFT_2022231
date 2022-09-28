@@ -17,8 +17,13 @@ namespace VO1BAB_HFT_202231.Repository
             this.Database.EnsureCreated();
         }
 
-
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseInMemoryDatabase("data").UseLazyLoadingProxies();
+            }
+        }
 
 
 
