@@ -29,6 +29,13 @@ namespace VO1BAB_HFT_202231.Repository
         {
 
 
+            modelBuilder.Entity<Cars>(cars => cars
+            .HasOne(x => x.Owner)
+            .WithMany(x => x.RentCar)
+            .HasForeignKey(x => x.EmployeesId)
+            .OnDelete(DeleteBehavior.Cascade));
+
+
 
 
 
@@ -37,12 +44,12 @@ namespace VO1BAB_HFT_202231.Repository
 
             });
 
-             modelBuilder.Entity<Employees>().HasData(new Employees[]
+            modelBuilder.Entity<Employees>().HasData(new Employees[]
             {
 
             });
 
-            modelBuilder.Entity<Rents>().HasData(new Rents[]
+           modelBuilder.Entity<Rents>().HasData(new Rents[]
            {
 
            });
