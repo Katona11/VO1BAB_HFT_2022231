@@ -23,7 +23,7 @@ namespace VO1BAB_HFT_202231.Models
 
         //public int EmployeesId { get; set; }
 
-        public virtual ICollection<Employees> Owner { get; set; }
+        public virtual ICollection<Rents> Owner { get; set; }
 
         public Cars(string path)
         {
@@ -35,12 +35,12 @@ namespace VO1BAB_HFT_202231.Models
             Year = int.Parse(splitarray[4]);
             PerformanceInHP = int.Parse(splitarray[4]);
             //EmployeesId = int.Parse(splitarray[5]);
-            Owner = new HashSet<Employees>();
+            //Owner = new HashSet<Employees>();
 
         }
         public Cars()
         {
-            Owner = new HashSet<Employees>();
+            //Owner = new HashSet<Employees>();
         }
     }
 }

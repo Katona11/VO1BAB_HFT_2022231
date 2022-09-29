@@ -31,9 +31,14 @@ namespace VO1BAB_HFT_202231.Repository
 
             //modelBuilder.Entity<Employees>(emplyes => emplyes
             //.HasMany(t=>t.RentCar).WithOne(t=>t.Owner).
-            
 
-            
+
+
+
+            modelBuilder.Entity<Rents>().HasOne(t => t.CarId).WithMany(t => t.Owner).HasForeignKey(t => t.RentcarId);
+
+            modelBuilder.Entity<Rents>().HasOne(t => t.Employees).WithMany(t => t.RentCar).HasForeignKey(t => t.EmployeesID);
+
 
 
             //modelBuilder.Entity<Cars>()

@@ -24,11 +24,11 @@ namespace VO1BAB_HFT_202231.Models
 
         
 
-        public virtual ICollection<Cars> RentCar { get; set; }
+        public virtual ICollection<Rents> RentCar { get; set; }
 
         public Employees()
         {
-            RentCar = new HashSet<Cars>();
+            //RentCar = new HashSet<Cars>();
         }
 
         public Employees(string path)
