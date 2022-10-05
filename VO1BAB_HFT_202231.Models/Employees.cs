@@ -39,7 +39,7 @@ namespace VO1BAB_HFT_202231.Models
             ClassName = splitarray[2];
             PhoneNumer = splitarray[3];
             DateOfBirth = splitarray[4];
-            RentCar = new HashSet<Cars>();
+            //RentCar = new HashSet<Cars>();
 
 
 
