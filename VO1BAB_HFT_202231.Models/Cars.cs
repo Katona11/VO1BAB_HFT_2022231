@@ -10,7 +10,7 @@ namespace VO1BAB_HFT_202231.Models
        
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CarsID { get; set; }
 
         public int CarBrandID { get; set; }
@@ -44,6 +44,11 @@ namespace VO1BAB_HFT_202231.Models
           
 
         }
-        
+        public Cars()
+        {
+            this.AllRents = new HashSet<Rents>();
+
+        }
+
     }
 }

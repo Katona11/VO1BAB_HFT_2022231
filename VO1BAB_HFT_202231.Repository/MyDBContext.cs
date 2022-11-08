@@ -23,6 +23,8 @@ namespace VO1BAB_HFT_202231.Repository
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseInMemoryDatabase("data").UseLazyLoadingProxies();
+
+
             }
         }
 
@@ -54,19 +56,21 @@ namespace VO1BAB_HFT_202231.Repository
 
             modelBuilder.Entity<Rents>().HasData(new Rents[]
             {
-                new Rents("1,2022-10-11,Kovács Attila,1")
+                new Rents("1,2022-10-11,Kovács Attila,1"),
+                new Rents("2,2022-10-11,Kovács Anna,2"),
+                new Rents("3,2022-10-11,Lakatos Béla,1")
             });
 
 
             modelBuilder.Entity<CarBrand>().HasData(new CarBrand[]
             {
-                new CarBrand("BMW,1"),
-                new CarBrand("Mercedes-Benz,2"),
-                new CarBrand("Ford,3"),
-                new CarBrand("Skoda,4"),
-                new CarBrand("Audi,5"),
-                new CarBrand("Kia,6"),
-                new CarBrand("Opel,7")
+                new CarBrand("1,BMW"),
+                new CarBrand("2,Mercedes-Benz"),
+                new CarBrand("3,Ford"),
+                new CarBrand("4,Skoda"),
+                new CarBrand("5,Audi"),
+                new CarBrand("6,Kia"),
+                new CarBrand("7,Opel")
 
 
             });

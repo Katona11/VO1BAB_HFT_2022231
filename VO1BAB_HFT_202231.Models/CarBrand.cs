@@ -11,7 +11,7 @@ namespace VO1BAB_HFT_202231.Models
     public class CarBrand
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CarBrandID { get; set; }
         public string Name { get; set; }
 
@@ -22,8 +22,14 @@ namespace VO1BAB_HFT_202231.Models
         public CarBrand(string path)
         {
             string[] array = path.Split(',');
-            this.Name = array[0];
+            this.CarBrandID = int.Parse(array[0]);
+            this.Name = array[1];
             
+            
+        }
+        public CarBrand()
+        {
+
         }
     }
 }

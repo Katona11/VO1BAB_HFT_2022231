@@ -7,7 +7,7 @@ using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_202231.Repository
 {
-    class CarBrandRepository : Repository<CarBrand>, ICarBrandRepository
+    class CarBrandRepository : Repository<CarBrand>
     {
 
         public CarBrandRepository(MyDBContext ctx) : base(ctx)
