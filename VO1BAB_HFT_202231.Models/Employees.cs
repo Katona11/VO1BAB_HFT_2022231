@@ -24,12 +24,9 @@ namespace VO1BAB_HFT_202231.Models
 
         
 
-        public virtual ICollection<Rents> RentCar { get; set; }
+        public virtual Rents RentCar { get; set; }
 
-        public Employees()
-        {
-            //RentCar = new HashSet<Cars>();
-        }
+       
 
         public Employees(string path)
         {
@@ -39,7 +36,7 @@ namespace VO1BAB_HFT_202231.Models
             ClassName = splitarray[2];
             PhoneNumer = splitarray[3];
             DateOfBirth = splitarray[4];
-            //RentCar = new HashSet<Cars>();
+            
 
 
 

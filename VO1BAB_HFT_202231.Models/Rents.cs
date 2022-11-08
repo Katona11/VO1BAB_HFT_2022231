@@ -16,14 +16,28 @@ namespace VO1BAB_HFT_202231.Models
 
         public string RentTime { get; set; }
 
+        public string OwnerName { get; set; }
 
-        public int RentcarId { get; set; }
 
-        public int EmployeesID{ get; set; }
 
-        public virtual Cars CarId { get; private set; }
+        public int CarsID { get; set; }
 
-        public virtual Employees Employees { get; private set; }
+        public virtual Cars cars { get; set; }
+
+        public Rents(string path)
+        {
+            string[] array = path.Split(';');
+            RentId = int.Parse(array[0]);
+            RentTime = array[1];
+            OwnerName = array[2];
+            CarsID = int.Parse(array[3]);
+        }
+
+       
+
+        
+
+       
 
 
 
