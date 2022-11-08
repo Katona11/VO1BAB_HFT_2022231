@@ -16,9 +16,9 @@ namespace VO1BAB_HFT_202231.Logic
 
         public void Create(Cars item)
         {
-            if (item.Brand.Length<3)
+            if (item.Year<1950)
             {
-                throw new ArgumentException("The BrandName is too short!");
+                throw new ArgumentException("The year is too short!");
             }
             else
             {
