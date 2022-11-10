@@ -8,7 +8,7 @@ using VO1BAB_HFT_202231.Repository;
 
 namespace VO1BAB_HFT_202231.Logic
 {
-    class CarBrandLogic : ICarBrandLogic
+    public class CarBrandLogic : ICarBrandLogic
     {
         IRepository<CarBrand> repo;
         public void Create(CarBrand item)

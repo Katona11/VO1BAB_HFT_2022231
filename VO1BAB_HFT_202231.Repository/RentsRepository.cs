@@ -7,7 +7,7 @@ using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_202231.Repository
 {
-    class RentsRepository : Repository<Rents>
+    public class RentsRepository : Repository<Rents>
     {
         public RentsRepository(MyDBContext ctx) : base(ctx)
         {

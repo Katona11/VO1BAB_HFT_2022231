@@ -7,7 +7,7 @@ using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_202231.Logic
 {
-    interface IRentsLogic
+    public interface IRentsLogic
     {
         void Create(Rents item);
 

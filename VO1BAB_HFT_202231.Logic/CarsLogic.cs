@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using VO1BAB_HFT_202231.Models;
 using VO1BAB_HFT_202231.Repository;
 
@@ -8,6 +9,7 @@ namespace VO1BAB_HFT_202231.Logic
     public class CarsLogic : ICarLogic
     {
         IRepository<Cars> repo;
+        IRepository<CarBrand> carbranrepo;
 
         public CarsLogic(IRepository<Cars> repo)
         {
@@ -52,6 +54,16 @@ namespace VO1BAB_HFT_202231.Logic
         public void Update(Cars item)
         {
             this.repo.Update(item);
+        }
+        public IEnumerable<int> TheMostFamousBrand()
+        {
+            return from t in repo.ReadAll()
+                   join y in carbranrepo.ReadAll()
+                   on t.CarBrandID equals y.CarBrandID
+                   group t by t.CarBrandID into g
+                   orderby g.Count() descending
+                   select g.Key;
+
         }
     }
 }

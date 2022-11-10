@@ -7,7 +7,7 @@ using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_202231.Logic
 {
-    interface ICarLogic
+    public interface ICarLogic
     {
         void Create(Cars item);
 
@@ -18,5 +18,7 @@ namespace VO1BAB_HFT_202231.Logic
         IEnumerable<Cars> ReadAll();
 
         void Update(Cars item);
+
+        IEnumerable<int> TheMostFamousBrand();
     }
 }

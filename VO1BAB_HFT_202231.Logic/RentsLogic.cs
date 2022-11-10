@@ -8,7 +8,7 @@ using VO1BAB_HFT_202231.Repository;
 
 namespace VO1BAB_HFT_202231.Logic
 {
-    class RentsLogic : IRentsLogic
+    public class RentsLogic : IRentsLogic
     {
         IRepository<Rents> repo;
         public void Create(Rents item)

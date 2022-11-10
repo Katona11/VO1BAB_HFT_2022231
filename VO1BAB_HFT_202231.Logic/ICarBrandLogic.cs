@@ -7,7 +7,7 @@ using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_202231.Logic
 {
-    interface ICarBrandLogic
+    public interface ICarBrandLogic
     {
         void Create(CarBrand item);
 
