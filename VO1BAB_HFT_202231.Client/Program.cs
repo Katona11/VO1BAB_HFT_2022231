@@ -18,9 +18,9 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void List(string entity)
         {
-            if (entity == "Cars")
+            if (entity == "Car")
             {
-                List<Cars> cars = rest.Get<Cars>("database");
+                List<Cars> cars = rest.Get<Cars>("cars");
                 foreach (var item in cars)
                 {
                     Console.WriteLine(item.CarBrandID);
@@ -42,7 +42,7 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:14070/","database");
+            rest = new RestService("http://localhost:14070/","cars");
             
 
             var carSubMenu = new ConsoleMenu(args, level: 1)
@@ -76,7 +76,9 @@ namespace VO1BAB_HFT_202231.Client
                 
                 .Add("Exit", ConsoleMenu.Close);
 
+            
             menu.Show();
+            
 
 
             

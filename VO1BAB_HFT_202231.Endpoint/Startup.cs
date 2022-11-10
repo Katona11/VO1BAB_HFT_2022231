@@ -29,6 +29,13 @@ namespace VO1BAB_HFT_202231.Endpoint
             services.AddTransient<ICarBrandLogic, CarBrandLogic>();
             services.AddTransient<IRentsLogic, RentsLogic>();
 
+            services.AddControllers();
+
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "VO1BAB_UMHFT", Version = "v1" });
+            //});
+
 
         }
 
@@ -39,15 +46,20 @@ namespace VO1BAB_HFT_202231.Endpoint
             {
                 app.UseDeveloperExceptionPage();
             }
+            
 
             app.UseRouting();
 
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
+                endpoints.MapControllers();
+
             });
         }
     }
