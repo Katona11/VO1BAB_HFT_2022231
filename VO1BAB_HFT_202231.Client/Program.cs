@@ -10,6 +10,7 @@ namespace VO1BAB_HFT_202231.Client
 {
     class Program
     {
+        static RestService rest;
         static void Create(string entity)
         {
             Console.WriteLine(entity + " create");
@@ -17,10 +18,14 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void List(string entity)
         {
-            if (entity == "Actor")
+            if (entity == "Cars")
             {
+                List<Cars> cars = rest.Get<Cars>("database");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.CarBrandID);
+                }
                
-                Console.WriteLine("Id" + "\t" + "Name");
                 
             }
             Console.ReadLine();
@@ -37,8 +42,8 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Main(string[] args)
         {
-
-
+            rest = new RestService("http://localhost:14070/","database");
+            
 
             var carSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Car"))
@@ -74,7 +79,7 @@ namespace VO1BAB_HFT_202231.Client
             menu.Show();
 
 
-            Console.ReadLine();
+            
            
         }
     }
