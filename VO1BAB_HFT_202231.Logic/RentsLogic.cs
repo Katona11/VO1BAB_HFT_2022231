@@ -11,6 +11,12 @@ namespace VO1BAB_HFT_202231.Logic
     public class RentsLogic : IRentsLogic
     {
         IRepository<Rents> repo;
+
+        public RentsLogic(IRepository<Rents> repo)
+        {
+            this.repo = repo;
+        }
+
         public void Create(Rents item)
         {
             this.repo.Create(item);

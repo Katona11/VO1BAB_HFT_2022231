@@ -11,6 +11,12 @@ namespace VO1BAB_HFT_202231.Logic
     public class CarBrandLogic : ICarBrandLogic
     {
         IRepository<CarBrand> repo;
+
+        public CarBrandLogic(IRepository<CarBrand> repo)
+        {
+            this.repo = repo;
+        }
+
         public void Create(CarBrand item)
         {
             this.repo.Create(item);
