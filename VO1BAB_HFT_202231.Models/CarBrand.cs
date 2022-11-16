@@ -15,7 +15,7 @@ namespace VO1BAB_HFT_202231.Models
         public int CarBrandID { get; set; }
         public string Name { get; set; }
 
-       
+        public virtual ICollection<Cars>  Cars{get;set;}
 
         
 

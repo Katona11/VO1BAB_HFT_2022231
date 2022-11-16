@@ -27,6 +27,8 @@ namespace VO1BAB_HFT_202231.Models
 
         public virtual ICollection<Rents> AllRents { get; set; }
 
+        public virtual CarBrand CarBrand { get; set; } 
+
         
 
         public Cars(string path)

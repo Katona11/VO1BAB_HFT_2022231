@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VO1BAB_HFT_202231.Models;
+using static VO1BAB_HFT_202231.Logic.CarsLogic;
 
 namespace VO1BAB_HFT_202231.Logic
 {
@@ -19,6 +20,6 @@ namespace VO1BAB_HFT_202231.Logic
 
         void Update(Cars item);
 
-        IEnumerable<int> TheMostFamousBrand();
+        TheMostFamous TheMostFamousBrand();
     }
 }

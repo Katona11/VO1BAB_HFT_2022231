@@ -11,11 +11,11 @@ namespace VO1BAB_HFT_202231.Client
 {
     class Program
     {
-        //static RestService rest;
+        static RestService rest;
         static CarsLogic carlogic;
         static CarBrandLogic carbrandlogic;
         static RentsLogic rentslogic;
-        
+
         static void Create(string entity)
         {
             Console.WriteLine(entity + " create");
@@ -30,15 +30,20 @@ namespace VO1BAB_HFT_202231.Client
                 //{
                 //    Console.WriteLine(item.CarBrandID);
                 //}
+
+
+
+
                 var items = carlogic.ReadAll();
                 var items2 = carlogic.TheMostFamousBrand();
                 Console.WriteLine("Id " + " \t" + "Name");
-                foreach (var item in items2)
-                {
-                    Console.WriteLine(item);
-                }
-               
-                
+                //foreach (var item in items)
+                //{
+                //    Console.WriteLine(item.CarBrand.Name);
+                //}
+                Console.WriteLine(items2);
+
+
             }
             Console.ReadLine();
         }
@@ -54,7 +59,7 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Main(string[] args)
         {
-            //rest = new RestService("http://localhost:14070/","cars");
+            //rest = new RestService("http://localhost:14070/", "cars");
             var ctx = new MyDBContext();
             var carrepo = new CarsRepository(ctx);
             var carbrandrepo = new CarBrandRepository(ctx);
@@ -64,7 +69,7 @@ namespace VO1BAB_HFT_202231.Client
             carlogic = new CarsLogic(carrepo);
             carbrandlogic = new CarBrandLogic(carbrandrepo);
             rentslogic = new RentsLogic(rentsrepo);
-            
+
 
             var carSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Car"))
