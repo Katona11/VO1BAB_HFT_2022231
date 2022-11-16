@@ -9,7 +9,7 @@ using VO1BAB_HFT_202231.Repository;
 
 namespace VO1BAB_HFT_202231.Client
 {
-    class Program
+    internal class Program
     {
         static RestService rest;
         //static CarsLogic carlogic;
@@ -25,7 +25,7 @@ namespace VO1BAB_HFT_202231.Client
         {
             if (entity == "Car")
             {
-                List<Cars> cars = rest.Get<Cars>("Cars");
+                List<Cars> cars = rest.Get<Cars>("cars");
                 foreach (var item in cars)
                 {
                     Console.WriteLine(item.CarBrandID);
@@ -77,7 +77,7 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:50437/", "Cars");
+            rest = new RestService("http://localhost:50437/", "cars");
             //var ctx = new MyDBContext();
             //var carrepo = new CarsRepository(ctx);
             //var carbrandrepo = new CarBrandRepository(ctx);

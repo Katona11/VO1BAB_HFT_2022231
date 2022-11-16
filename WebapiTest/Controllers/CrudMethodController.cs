@@ -11,7 +11,7 @@ using static VO1BAB_HFT_202231.Logic.RentsLogic;
 
 namespace VO1BAB_HFT_20231.Endpoint.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class CrudMethodController : ControllerBase
     {

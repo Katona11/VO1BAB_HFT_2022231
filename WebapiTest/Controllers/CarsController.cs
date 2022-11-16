@@ -8,7 +8,7 @@ using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_20231.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CarsController : ControllerBase
     {

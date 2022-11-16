@@ -22,7 +22,7 @@ namespace VO1BAB_HFT_202231.Repository
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseInMemoryDatabase("data").UseLazyLoadingProxies();
+                optionsBuilder.UseInMemoryDatabase("cars").UseLazyLoadingProxies();
 
 
             }

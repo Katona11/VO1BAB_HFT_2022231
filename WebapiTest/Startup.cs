@@ -41,7 +41,7 @@ namespace VO1BAB_HFT_20231.Endpoint
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebapiTest", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "VO1BAB_HFT_20231.Endpoint", Version = "v1" });
             });
         }
 
@@ -52,7 +52,7 @@ namespace VO1BAB_HFT_20231.Endpoint
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebapiTest v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VO1BAB_HFT_20231.Endpoint v1"));
             }
 
             app.UseRouting();
