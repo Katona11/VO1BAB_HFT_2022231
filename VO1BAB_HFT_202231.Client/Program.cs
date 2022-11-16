@@ -36,12 +36,18 @@ namespace VO1BAB_HFT_202231.Client
 
                 var items = carlogic.ReadAll();
                 var items2 = carlogic.TheMostFamousBrand();
+                var item3 = carlogic.AvarageHPperCar();
                 Console.WriteLine("Id " + " \t" + "Name");
                 //foreach (var item in items)
                 //{
                 //    Console.WriteLine(item.CarBrand.Name);
                 //}
                 Console.WriteLine(items2);
+                Console.WriteLine();
+                foreach (var item in item3)
+                {
+                    Console.WriteLine(item);
+                }
 
 
             }

@@ -21,5 +21,7 @@ namespace VO1BAB_HFT_202231.Logic
         void Update(Cars item);
 
         TheMostFamous TheMostFamousBrand();
+
+        IEnumerable<AvarageCarHP> AvarageHPperCar();
     }
 }

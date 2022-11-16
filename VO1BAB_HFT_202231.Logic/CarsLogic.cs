@@ -67,9 +67,21 @@ namespace VO1BAB_HFT_202231.Logic
             return item;
 
             
+        }
+        public record AvarageCarHP(string name,double avarage);
+
+        public IEnumerable<AvarageCarHP> AvarageHPperCar()
+        {
+
+            var item = from t in repo.ReadAll()
+                       group t by t.CarBrand.Name into g
+                       select new AvarageCarHP(g.Key, g.Average(t => t.PerformanceInHP));
+
+            return item;
+                       
 
         }
 
-        
+
     }
 }

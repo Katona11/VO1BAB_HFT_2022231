@@ -15,7 +15,7 @@ namespace VO1BAB_HFT_202231.Models
         public int CarBrandID { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Cars>  Cars{get;set;}
+        public virtual ICollection<Cars>  Cars {get ;set; }
 
         
 
@@ -24,12 +24,13 @@ namespace VO1BAB_HFT_202231.Models
             string[] array = path.Split(',');
             this.CarBrandID = int.Parse(array[0]);
             this.Name = array[1];
+            this.Cars = new HashSet<Cars>();
             
             
         }
         public CarBrand()
         {
-
+            this.Cars = new HashSet<Cars>();
         }
     }
 }
