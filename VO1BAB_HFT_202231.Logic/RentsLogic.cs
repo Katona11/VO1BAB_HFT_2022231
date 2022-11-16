@@ -49,5 +49,14 @@ namespace VO1BAB_HFT_202231.Logic
         {
             this.repo.Update(item);
         }
+
+        public IEnumerable<string> TheRentsCarBrand()
+        {
+            var item = from t in repo.ReadAll()
+                       select t.cars.CarBrand.Name;
+
+            return item;
+
+        }
     }
 }

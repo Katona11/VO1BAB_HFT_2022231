@@ -18,5 +18,7 @@ namespace VO1BAB_HFT_202231.Logic
         Rents Read(int id);
 
         IEnumerable<Rents> ReadAll();
+
+        IEnumerable<string> TheRentsCarBrand();
     }
 }
