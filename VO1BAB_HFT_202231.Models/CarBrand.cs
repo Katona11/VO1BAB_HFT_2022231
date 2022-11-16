@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace VO1BAB_HFT_202231.Models
@@ -15,6 +16,7 @@ namespace VO1BAB_HFT_202231.Models
         public int CarBrandID { get; set; }
         public string Name { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Cars>  Cars {get ;set; }
 
         

@@ -12,9 +12,9 @@ namespace VO1BAB_HFT_202231.Client
     class Program
     {
         static RestService rest;
-        static CarsLogic carlogic;
-        static CarBrandLogic carbrandlogic;
-        static RentsLogic rentslogic;
+        //static CarsLogic carlogic;
+        //static CarBrandLogic carbrandlogic;
+        //static RentsLogic rentslogic;
 
         static void Create(string entity)
         {
@@ -25,41 +25,41 @@ namespace VO1BAB_HFT_202231.Client
         {
             if (entity == "Car")
             {
-                //List<Cars> cars = rest.Get<Cars>("cars");
-                //foreach (var item in cars)
-                //{
-                //    Console.WriteLine(item.CarBrandID);
-                //}
+                List<Cars> cars = rest.Get<Cars>("Cars");
+                foreach (var item in cars)
+                {
+                    Console.WriteLine(item.CarBrandID);
+                }
 
 
 
 
-                var items = carlogic.ReadAll();
-                var items2 = carlogic.TheMostFamousBrand();
-                var item3 = carlogic.AvarageHPperCar();
-                var item4 = rentslogic.TheRentsCarBrand();
-                var item5 = rentslogic.BrandperRentsCountsMethod();
-                Console.WriteLine("Id " + " \t" + "Name");
+                //var items = carlogic.ReadAll();
+                //var items2 = carlogic.TheMostFamousBrand();
+                //var item3 = carlogic.AvarageHPperCar();
+                //var item4 = rentslogic.TheRentsCarBrand();
+                //var item5 = rentslogic.BrandperRentsCountsMethod();
+                //Console.WriteLine("Id " + " \t" + "Name");
                 //foreach (var item in items)
                 //{
                 //    Console.WriteLine(item.CarBrand.Name);
                 //}
-                Console.WriteLine(items2);
-                Console.WriteLine();
-                foreach (var item in item3)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine();
-                foreach (var item in item4)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine();
-                foreach (var item in item5)
-                {
-                    Console.WriteLine(item);
-                }
+                //Console.WriteLine(items2);
+                //Console.WriteLine();
+                //foreach (var item in item3)
+                //{
+                //    Console.WriteLine(item);
+                //}
+                //Console.WriteLine();
+                //foreach (var item in item4)
+                //{
+                //    Console.WriteLine(item);
+                //}
+                //Console.WriteLine();
+                //foreach (var item in item5)
+                //{
+                //    Console.WriteLine(item);
+                //}
 
 
             }
@@ -77,16 +77,16 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Main(string[] args)
         {
-            //rest = new RestService("http://localhost:14070/", "cars");
-            var ctx = new MyDBContext();
-            var carrepo = new CarsRepository(ctx);
-            var carbrandrepo = new CarBrandRepository(ctx);
-            var rentsrepo = new RentsRepository(ctx);
+            rest = new RestService("http://localhost:50437/", "Cars");
+            //var ctx = new MyDBContext();
+            //var carrepo = new CarsRepository(ctx);
+            //var carbrandrepo = new CarBrandRepository(ctx);
+            //var rentsrepo = new RentsRepository(ctx);
 
 
-            carlogic = new CarsLogic(carrepo);
-            carbrandlogic = new CarBrandLogic(carbrandrepo);
-            rentslogic = new RentsLogic(rentsrepo);
+            //carlogic = new CarsLogic(carrepo);
+            //carbrandlogic = new CarBrandLogic(carbrandrepo);
+            //rentslogic = new RentsLogic(rentsrepo);
 
 
             var carSubMenu = new ConsoleMenu(args, level: 1)
@@ -124,9 +124,6 @@ namespace VO1BAB_HFT_202231.Client
             menu.Show();
             
 
-
-            
-           
         }
     }
 }

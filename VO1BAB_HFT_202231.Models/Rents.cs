@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace VO1BAB_HFT_202231.Models
@@ -22,6 +23,7 @@ namespace VO1BAB_HFT_202231.Models
 
         public int CarsID { get; set; }
 
+        [JsonIgnore]
         public virtual Cars cars { get; set; }
 
         public Rents(string path)
