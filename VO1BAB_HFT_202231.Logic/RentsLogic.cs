@@ -58,5 +58,14 @@ namespace VO1BAB_HFT_202231.Logic
             return item;
 
         }
+        public record BrandperRentsCount(string brand, int count);
+        public IEnumerable<BrandperRentsCount> BrandperRentsCountsMethod()
+        {
+            var item = from t in repo.ReadAll()
+                       group t by t.cars.CarBrand.Name into g
+                       select new BrandperRentsCount(g.Key, g.Count());
+
+            return item;
+        }
     }
 }

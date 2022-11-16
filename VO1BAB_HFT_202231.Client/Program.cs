@@ -38,6 +38,7 @@ namespace VO1BAB_HFT_202231.Client
                 var items2 = carlogic.TheMostFamousBrand();
                 var item3 = carlogic.AvarageHPperCar();
                 var item4 = rentslogic.TheRentsCarBrand();
+                var item5 = rentslogic.BrandperRentsCountsMethod();
                 Console.WriteLine("Id " + " \t" + "Name");
                 //foreach (var item in items)
                 //{
@@ -51,6 +52,11 @@ namespace VO1BAB_HFT_202231.Client
                 }
                 Console.WriteLine();
                 foreach (var item in item4)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine();
+                foreach (var item in item5)
                 {
                     Console.WriteLine(item);
                 }

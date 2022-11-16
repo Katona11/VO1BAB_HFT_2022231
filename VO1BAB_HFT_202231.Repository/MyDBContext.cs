@@ -38,11 +38,11 @@ namespace VO1BAB_HFT_202231.Repository
 
 
 
-            modelBuilder.Entity<Cars>(t => t.HasMany(t => t.AllRents).WithOne(t => t.cars).HasForeignKey(t => t.RentId));
+            modelBuilder.Entity<Cars>(t => t.HasMany(t => t.AllRents).WithOne(t => t.cars).HasForeignKey(t => t.CarsID));
             modelBuilder.Entity<Cars>(t => t.HasOne(t => t.CarBrand).WithMany(t => t.Cars).HasForeignKey(t => t.CarBrandID));
-            
 
-           
+
+
 
 
 
@@ -59,8 +59,9 @@ namespace VO1BAB_HFT_202231.Repository
             {
                 new Rents("1,2022-10-11,Kovács Attila,1"),
                 new Rents("2,2022-10-11,Kovács Anna,2"),
-                new Rents("3,2022-10-11,Lakatos Béla,1")
-            });
+                new Rents("3,2022-10-11,Lakatos Béla,1"),
+                new Rents("4,2022-10-11,Lakatos Béla,1")
+            }) ;
 
 
             modelBuilder.Entity<CarBrand>().HasData(new CarBrand[]

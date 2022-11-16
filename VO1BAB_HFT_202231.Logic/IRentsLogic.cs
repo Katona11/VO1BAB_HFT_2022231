@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VO1BAB_HFT_202231.Models;
+using static VO1BAB_HFT_202231.Logic.RentsLogic;
 
 namespace VO1BAB_HFT_202231.Logic
 {
@@ -20,5 +21,7 @@ namespace VO1BAB_HFT_202231.Logic
         IEnumerable<Rents> ReadAll();
 
         IEnumerable<string> TheRentsCarBrand();
+
+        IEnumerable<BrandperRentsCount> BrandperRentsCountsMethod();
     }
 }
