@@ -139,6 +139,7 @@ namespace VO1BAB_HFT_202231.Client
             if (!response.IsSuccessStatusCode)
             {
                 var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                
                 throw new ArgumentException(error.Msg);
             }
 

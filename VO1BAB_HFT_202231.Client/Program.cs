@@ -112,8 +112,87 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Update(string entity)
         {
-            Console.WriteLine(entity + " update");
-            Console.ReadLine();
+            if (entity == "Car") 
+            {
+                Console.WriteLine("Enter the Car's Id: ");
+                int id = int.Parse(Console.ReadLine());
+                Cars one = rest.Get<Cars>(id, "car");
+
+                Console.WriteLine($"Enter the new id[old: {one.CarsID}]");
+                int carsid = int.Parse(Console.ReadLine());
+                one.CarsID = carsid;
+
+                Console.WriteLine($"Enter the new CarBrandId[old: {one.CarBrandID}]: ");
+                int carbrandid = int.Parse(Console.ReadLine());
+                one.CarBrandID = carbrandid;
+
+                Console.WriteLine($"Enter the new LicensePlateNumber[old: {one.LicensePlateNumber}]: ");
+                string licenseplatenumberstring = Console.ReadLine();
+                one.LicensePlateNumber = licenseplatenumberstring;
+
+
+                Console.WriteLine($"Enter the new  HorsePower[old: {one.PerformanceInHP}]: ");
+                int horsepower = int.Parse(Console.ReadLine());
+                one.PerformanceInHP = horsepower;
+
+                Console.WriteLine($"Enter the new Car Type[old: {one.Type}]: ");
+                string cartype = Console.ReadLine();
+                one.Type = cartype;
+
+                Console.WriteLine($"Enter the new car  year[old: {one.Year}]: ");
+                int year = int.Parse(Console.ReadLine());
+                one.Year = year;
+
+                rest.Put(one, "car");
+            }
+            else if (entity == "CarBrand")
+            {
+                Console.WriteLine("Enter the CarBrand's Id: ");
+                int id = int.Parse(Console.ReadLine());
+                CarBrand one = rest.Get<CarBrand>(id, "carbrand");
+
+                Console.WriteLine($"Enter the new CarBrandId[old: {one.CarBrandID}]: ");
+                int carbrandid = int.Parse(Console.ReadLine());
+                one.CarBrandID = carbrandid;
+
+                Console.WriteLine($"Enter the new CarBrand Name[old: {one.Name}]: ");
+                string name = Console.ReadLine();
+                one.Name = name;
+
+                rest.Put(one, "carbrand");
+
+
+            }
+            else if (entity=="Rents")
+            {
+                Console.WriteLine("Enter the Rent's Id: ");
+                int id = int.Parse(Console.ReadLine());
+                Rents one = rest.Get<Rents>(id, "rents");
+
+                Console.WriteLine($"Enter the new RentID[old: {one.RentId}]: ");
+                int rentId = int.Parse(Console.ReadLine());
+                one.RentId = rentId;
+
+
+                Console.WriteLine($"Enter the new  RentTime[old: {one.RentTime}]: ");
+                string renttime = Console.ReadLine();
+                one.RentTime = renttime;
+
+
+                Console.WriteLine($"Enter the new Owner Name[old: {one.OwnerName}]: ");
+                string ownername = Console.ReadLine();
+                one.OwnerName = ownername;
+
+
+                Console.WriteLine($"Enter the new CarId[old: {one.CarsID}]: ");
+                int carid = int.Parse(Console.ReadLine());
+                one.CarsID = carid;
+
+                rest.Put(one, "rents");
+
+
+            }
+            //Console.ReadLine();
         }
         static void Delete(string entity)
         {

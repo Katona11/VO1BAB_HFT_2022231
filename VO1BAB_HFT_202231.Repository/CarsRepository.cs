@@ -23,8 +23,12 @@ namespace VO1BAB_HFT_202231.Repository
             var olditem = Read(id.CarsID);
             foreach (var item in olditem.GetType().GetProperties())
             {
-                item.SetValue(olditem, item.GetValue(id));
+                if (item.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    item.SetValue(olditem, item.GetValue(id));
+                }
             }
+            ctx.SaveChanges();
         }
     }
 }
