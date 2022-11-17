@@ -117,8 +117,25 @@ namespace VO1BAB_HFT_202231.Client
         }
         static void Delete(string entity)
         {
-            Console.WriteLine(entity + " delete");
-            Console.ReadLine();
+
+            if (entity == "Car")
+            {
+                Console.WriteLine("Enter the Car's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "car");
+            }
+            else if (entity == "CarBrand")
+            {
+                Console.WriteLine("Enter the CarBrand's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "carbrand");
+            }
+            else if (entity == "Rents")
+            {
+                Console.WriteLine("Enter the Rent's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "rents");
+            }
         }
         static void Main(string[] args)
         {
