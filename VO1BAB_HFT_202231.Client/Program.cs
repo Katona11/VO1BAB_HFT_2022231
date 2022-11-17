@@ -28,8 +28,52 @@ namespace VO1BAB_HFT_202231.Client
                 int horsepower = int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter the Car Type: ");
                 string cartype = Console.ReadLine();
+                Console.WriteLine("Enter the year: ");
+                int year = int.Parse(Console.ReadLine());
+                rest.Post(new Cars()
+                {
+                    CarsID = carid,
+                    CarBrandID = carbrandid,
+                    LicensePlateNumber = licenseplatenumberstring,
+                    PerformanceInHP = horsepower,
+                    Type = cartype,
+                    Year = year
+                },"car");
+
 
             }
+            else if (entity == "CarBrand")
+            {
+                Console.WriteLine("Enter the CarBrandId: ");
+                int carbrandid = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the CarBrand Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new CarBrand()
+                {
+                    CarBrandID = carbrandid,
+                    Name = name
+                }, "carbrand");
+            }
+            else if (entity == "Rents")
+            {
+                Console.WriteLine("Enter the RentID: ");
+                int rentId = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the RentTime: ");
+                string renttime = Console.ReadLine();
+                Console.WriteLine("Enter the Owner Name: ");
+                string ownername = Console.ReadLine();
+                Console.WriteLine("Enter the CarId: ");
+                int carid = int.Parse(Console.ReadLine());
+                rest.Post(new Rents()
+                {
+                    RentId = rentId,
+                    RentTime = renttime,
+                    OwnerName = ownername,
+                    CarsID = carid
+                }, "rents");
+
+            }
+
         }
         static void List(string entity)
         {
