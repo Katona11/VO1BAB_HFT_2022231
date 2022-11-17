@@ -3,23 +3,33 @@ using ConsoleTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using VO1BAB_HFT_202231.Logic;
+
 using VO1BAB_HFT_202231.Models;
-using VO1BAB_HFT_202231.Repository;
+
 
 namespace VO1BAB_HFT_202231.Client
 {
     internal class Program
     {
         static RestService rest;
-        //static CarsLogic carlogic;
-        //static CarBrandLogic carbrandlogic;
-        //static RentsLogic rentslogic;
+        
 
         static void Create(string entity)
         {
-            Console.WriteLine(entity + " create");
-            Console.ReadLine();
+            if (entity == "Car")
+            {
+                Console.WriteLine("Enter the CarId: ");
+                int carid = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the CarBrandId: ");
+                int carbrandid = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the LicensePlateNumber: ");
+                string licenseplatenumberstring = Console.ReadLine();
+                Console.WriteLine("Enter the HorsePower: ");
+                int horsepower = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the Car Type: ");
+                string cartype = Console.ReadLine();
+
+            }
         }
         static void List(string entity)
         {
@@ -28,41 +38,32 @@ namespace VO1BAB_HFT_202231.Client
                 List<Cars> cars = rest.Get<Cars>("cars");
                 foreach (var item in cars)
                 {
-                    Console.WriteLine(item.CarBrandID);
+                    Console.WriteLine($" {item.CarsID} {item.CarBrandID} {item.LicensePlateNumber} {item.PerformanceInHP} {item.Type} {item.Year}");
+
                 }
 
 
-
-
-                //var items = carlogic.ReadAll();
-                //var items2 = carlogic.TheMostFamousBrand();
-                //var item3 = carlogic.AvarageHPperCar();
-                //var item4 = rentslogic.TheRentsCarBrand();
-                //var item5 = rentslogic.BrandperRentsCountsMethod();
-                //Console.WriteLine("Id " + " \t" + "Name");
-                //foreach (var item in items)
-                //{
-                //    Console.WriteLine(item.CarBrand.Name);
-                //}
-                //Console.WriteLine(items2);
-                //Console.WriteLine();
-                //foreach (var item in item3)
-                //{
-                //    Console.WriteLine(item);
-                //}
-                //Console.WriteLine();
-                //foreach (var item in item4)
-                //{
-                //    Console.WriteLine(item);
-                //}
-                //Console.WriteLine();
-                //foreach (var item in item5)
-                //{
-                //    Console.WriteLine(item);
-                //}
-
-
             }
+            else if (entity == "CarBrand")
+            {
+                List<CarBrand> carbrand = rest.Get<CarBrand>("carbrand");
+                foreach (var item in carbrand)
+                {
+                    Console.WriteLine($"{item.CarBrandID} {item.Name}");
+
+                }
+            }
+
+            else if (entity == "Rents")
+            {
+                List<Rents> rents = rest.Get<Rents>("rents");
+                foreach (var item in rents)
+                {
+                    Console.WriteLine($"{item.RentId} {item.RentTime} {item.OwnerName} {item.CarsID}");
+
+                }
+            }
+
             Console.ReadLine();
         }
         static void Update(string entity)
@@ -78,15 +79,7 @@ namespace VO1BAB_HFT_202231.Client
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:50437/", "cars");
-            //var ctx = new MyDBContext();
-            //var carrepo = new CarsRepository(ctx);
-            //var carbrandrepo = new CarBrandRepository(ctx);
-            //var rentsrepo = new RentsRepository(ctx);
-
-
-            //carlogic = new CarsLogic(carrepo);
-            //carbrandlogic = new CarBrandLogic(carbrandrepo);
-            //rentslogic = new RentsLogic(rentsrepo);
+           
 
 
             var carSubMenu = new ConsoleMenu(args, level: 1)
