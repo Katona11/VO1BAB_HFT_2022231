@@ -14,14 +14,14 @@ namespace VO1BAB_HFT_202231.Test
     public class TesterClass
     {
         CarsLogic logic;
-        //CarBrandLogic carbrandlogic;
+        CarBrandLogic carbrandlogic;
         //RentsLogic rentlogic;
         Mock<IRepository<Cars>> mockCarRepo;
-        //Mock<IRepository<CarBrand>> carbrandrepo;
+        Mock<IRepository<CarBrand>> carbrandrepo;
         //Mock<IRepository<Rents>> rentsrepo;
 
 
-       [SetUp]
+        [SetUp]
        public void Init()
        {
             mockCarRepo = new Mock<IRepository<Cars>>();
@@ -31,12 +31,12 @@ namespace VO1BAB_HFT_202231.Test
                 new Cars("2,2,AMG,YYY-444,2020,674")
             }.AsQueryable());
 
-            // carbrandrepo = new Mock<IRepository<CarBrand>>();
-            // carbrandrepo.Setup(m => m.ReadAll()).Returns(new List<CarBrand>()
-            //{
-            //    new CarBrand("1,Mercedes"),
-            //    new CarBrand("2,Audi")
-            //}.AsQueryable());
+            carbrandrepo = new Mock<IRepository<CarBrand>>();
+            carbrandrepo.Setup(m => m.ReadAll()).Returns(new List<CarBrand>()
+            {
+                new CarBrand("1,Mercedes"),
+                new CarBrand("2,Audi")
+            }.AsQueryable());
 
             //rentsrepo = new Mock<IRepository<Rents>>();
             //rentsrepo.Setup(m => m.ReadAll()).Returns(new List<Rents>()
@@ -46,10 +46,10 @@ namespace VO1BAB_HFT_202231.Test
             //}.AsQueryable());
 
             logic = new CarsLogic(mockCarRepo.Object);
-            //carbrandlogic = new CarBrandLogic(carbrandrepo.Object);
+            carbrandlogic = new CarBrandLogic(carbrandrepo.Object);
             //rentlogic = new RentsLogic(rentsrepo.Object);
 
-       }
+        }
 
         [Test]
         public void CreateCarTest()
@@ -70,7 +70,24 @@ namespace VO1BAB_HFT_202231.Test
             
             
         }
-        
+
+        [Test]
+        public void CreateCarBrandTest()
+        {
+            var carbrand = new CarBrand()
+            {
+                Name = "Suzuki",
+                CarBrandID = 3
+
+
+            };
+            carbrandlogic.Create(carbrand);
+            carbrandrepo.Verify(r => r.Create(carbrand), Times.Once);
+
+
+        }
+
+
 
     }
 }
