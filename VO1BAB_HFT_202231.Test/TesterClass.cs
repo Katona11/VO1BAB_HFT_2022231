@@ -15,10 +15,10 @@ namespace VO1BAB_HFT_202231.Test
     {
         CarsLogic logic;
         CarBrandLogic carbrandlogic;
-        //RentsLogic rentlogic;
+        RentsLogic rentlogic;
         Mock<IRepository<Cars>> mockCarRepo;
         Mock<IRepository<CarBrand>> carbrandrepo;
-        //Mock<IRepository<Rents>> rentsrepo;
+        Mock<IRepository<Rents>> rentsrepo;
 
 
         [SetUp]
@@ -38,16 +38,16 @@ namespace VO1BAB_HFT_202231.Test
                 new CarBrand("2,Audi")
             }.AsQueryable());
 
-            //rentsrepo = new Mock<IRepository<Rents>>();
-            //rentsrepo.Setup(m => m.ReadAll()).Returns(new List<Rents>()
-            //{
-            //    new Rents("1,2001-06-22,Katona István,1"),
-            //    new Rents("2,2022-03-11,Kiss Bécy,2")
-            //}.AsQueryable());
+            rentsrepo = new Mock<IRepository<Rents>>();
+            rentsrepo.Setup(m => m.ReadAll()).Returns(new List<Rents>()
+            {
+                new Rents("1,2001-06-22,Katona István,1"),
+                new Rents("2,2022-03-11,Kiss Bécy,2")
+            }.AsQueryable());
 
             logic = new CarsLogic(mockCarRepo.Object);
             carbrandlogic = new CarBrandLogic(carbrandrepo.Object);
-            //rentlogic = new RentsLogic(rentsrepo.Object);
+            rentlogic = new RentsLogic(rentsrepo.Object);
 
         }
 
@@ -83,6 +83,24 @@ namespace VO1BAB_HFT_202231.Test
             };
             carbrandlogic.Create(carbrand);
             carbrandrepo.Verify(r => r.Create(carbrand), Times.Once);
+
+
+        }
+
+        [Test]
+        public void CreateRentsTest()
+        {
+            var car = new Rents()
+            {
+               OwnerName = "Kiss Attila",
+               RentId = 2,
+               CarsID = 1,
+               RentTime = "2002-05-22"
+
+
+            };
+            rentlogic.Create(car);
+            rentsrepo.Verify(r => r.Create(car), Times.Once);
 
 
         }
