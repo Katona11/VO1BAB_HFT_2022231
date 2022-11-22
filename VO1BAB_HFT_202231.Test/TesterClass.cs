@@ -28,7 +28,8 @@ namespace VO1BAB_HFT_202231.Test
             mockCarRepo.Setup(m => m.ReadAll()).Returns(new List<Cars>()
             {
                 new Cars("1,1,E60,HFG-434,2004,310"),
-                new Cars("2,2,AMG,YYY-444,2020,674")
+                new Cars("2,2,AMG,YYY-444,2020,674"),
+                new Cars("1,3,Audi,XXX-444,2022,400")
             }.AsQueryable());
 
             carbrandrepo = new Mock<IRepository<CarBrand>>();
@@ -104,6 +105,17 @@ namespace VO1BAB_HFT_202231.Test
 
 
         }
+        //[Test]
+        //public void TheMostFamousBrandTest()
+        //{
+
+        //    var item = logic.TheMostFamousBrand();
+           
+        //    Assert.That(item, Is.EqualTo("BMW"));
+
+
+
+        //}
 
 
 

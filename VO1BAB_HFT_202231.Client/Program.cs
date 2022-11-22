@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using VO1BAB_HFT_202231.Models;
-
+using static VO1BAB_HFT_202231.Logic.CarsLogic;
+using static VO1BAB_HFT_202231.Logic.RentsLogic;
 
 namespace VO1BAB_HFT_202231.Client
 {
@@ -106,6 +107,44 @@ namespace VO1BAB_HFT_202231.Client
                     Console.WriteLine($"{item.RentId} {item.RentTime} {item.OwnerName} {item.CarsID}");
 
                 }
+            }
+            else if (entity == "Noncrud")
+            {
+                Console.WriteLine("AvgCarHP: ");
+                List<AvarageCarHP> avgcar = rest.Get<AvarageCarHP>("CrudMethod/AvarageHPperCar");
+                foreach (var item in avgcar)
+                {
+                    Console.WriteLine($"{item.name} - {item.avarage}");
+                }
+
+                //Console.WriteLine("MostFamousCar");
+                //List<TheMostFamous> mostfamouscar = rest.Get<TheMostFamous>("CrudMethod/TheMostFamousBrand");
+                //foreach (var item in mostfamouscar)
+                //{
+                //    Console.WriteLine($"{item.name} - {item.count}");
+                //}
+
+
+
+                Console.WriteLine();
+                Console.WriteLine("RentsCars: ");
+                List<string> allcar = rest.Get<string>("CrudMethod/TheRentsCarBrand");
+                foreach (var item in allcar)
+                {
+                    Console.WriteLine($"{item}");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("RentsCars: ");
+                List<BrandperRentsCount> brandperrents = rest.Get<BrandperRentsCount>("CrudMethod/BrandperRentsCountsMethod");
+                foreach (var item in brandperrents)
+                {
+                    Console.WriteLine($"{item.brand} - {item.count}");
+                }
+
+
+
+
             }
 
             Console.ReadLine();
@@ -243,17 +282,21 @@ namespace VO1BAB_HFT_202231.Client
                 .Add("Update", () => Update("Rents"))
                 .Add("Exit", ConsoleMenu.Close);
 
-           
 
+            var noncrudSubMenu = new ConsoleMenu(args, level: 1)
+               .Add("List", () => List("Noncrud"));
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Car", () => carSubMenu.Show())
                 .Add("CarBrand", () => carbrandSubMenu.Show())
                 .Add("Rents", () => rentsSubMenu.Show())
+                .Add("NonCrudmethod",() => noncrudSubMenu.Show())
                 
                 .Add("Exit", ConsoleMenu.Close);
 
-            
+         
+
+
             menu.Show();
             
 

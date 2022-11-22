@@ -55,14 +55,14 @@ namespace VO1BAB_HFT_202231.Logic
         {
             this.repo.Update(item);
         }
-        
-        public  record TheMostFamous(string name,int count);
-        public TheMostFamous TheMostFamousBrand()
+
+        public record TheMostFamous(string name, int count);
+        public  TheMostFamous  TheMostFamousBrand()
         {
             var item = (from t in repo.ReadAll()
                         group t by t.CarBrand.Name into g
                         orderby g.Count() descending
-                        select new TheMostFamous(g.Key, g.Count())).First();
+                        select new TheMostFamous(g.Key,g.Count())).First();
 
             return item;
 

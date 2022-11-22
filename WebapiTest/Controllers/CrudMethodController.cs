@@ -31,7 +31,7 @@ namespace VO1BAB_HFT_20231.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<BrandperRentsCount> BrandperRentsCountsMethod()
+        public IEnumerable<BrandperRentsCount> BrandperRentsCountsMethod()   
         {
             return this.rentlogic.BrandperRentsCountsMethod();
         }
