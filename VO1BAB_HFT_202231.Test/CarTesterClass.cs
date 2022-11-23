@@ -75,5 +75,42 @@ namespace VO1BAB_HFT_202231.Test
             Assert.AreEqual(excepted, actual);
 
         }
+        
+        [Test]
+        public void NotEqualTest()
+        {
+            var actual = logic.ReadAll().ToList();
+            var excepted = new List<Cars>()
+            {
+               new Cars()
+               {
+                CarsID = 2,
+                CarBrandID = 1,
+                Year = 2001,
+                Type = "Amg",
+                LicensePlateNumber = "ABC-121",
+                PerformanceInHP = 450,
+                CarBrand = new CarBrand()
+                {
+                    CarBrandID = 1,
+                    Name = "Mercedes-Benz"
+                },
+                AllRents = new List<Rents>()
+                    {
+                        new Rents()
+                        {
+                            RentId = 1,
+                            CarsID = 1,
+                            OwnerName = "Kiss Attila",
+                            RentTime = "2001-06-22"
+                        }
+                    }
+               }
+            };
+
+            Assert.AreNotEqual(excepted, actual);
+        }
+
+
     }
 }

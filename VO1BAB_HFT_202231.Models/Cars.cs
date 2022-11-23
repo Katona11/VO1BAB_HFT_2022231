@@ -51,6 +51,22 @@ namespace VO1BAB_HFT_202231.Models
             this.AllRents = new HashSet<Rents>();
 
         }
+        public override bool Equals(object obj)
+        {
+            Cars b = obj as Cars;
+            if (b==null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.CarsID == b.CarsID;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.CarsID);
+        }
 
     }
 }
