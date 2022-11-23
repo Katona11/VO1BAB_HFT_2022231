@@ -19,7 +19,15 @@ namespace VO1BAB_HFT_202231.Logic
 
         public void Create(CarBrand item)
         {
-            this.repo.Create(item);
+            var olditem = repo.ReadAll().FirstOrDefault(t => t.CarBrandID == item.CarBrandID);
+            if (olditem!=null)
+            {
+                throw new ArgumentException("The Carbrand already exist!");
+            }
+            else
+            {
+                this.repo.Create(item);
+            }
         }
 
         public void Delete(int id)
@@ -29,7 +37,15 @@ namespace VO1BAB_HFT_202231.Logic
 
         public CarBrand Read(int id)
         {
-            return this.Read(id);
+            var item = this.repo.Read(id);
+            if (item == null)
+            {
+                throw new Exception("The carbrand id not exist");
+            }
+            else
+            {
+                return item;
+            }
         }
 
         public IEnumerable<CarBrand> ReadAll()

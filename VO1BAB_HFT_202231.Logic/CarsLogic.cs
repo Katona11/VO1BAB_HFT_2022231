@@ -18,10 +18,12 @@ namespace VO1BAB_HFT_202231.Logic
 
         public void Create(Cars item)
         {
-            if (item.Year<1950)
+            var olditem = repo.ReadAll().FirstOrDefault(t => t.CarsID == item.CarsID);
+            if (olditem != null)
             {
-                throw new ArgumentException("The year is too short!");
+                throw new ArgumentException("The car  already exist!");
             }
+            
             else
             {
                 this.repo.Create(item);

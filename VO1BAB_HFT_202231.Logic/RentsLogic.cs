@@ -19,7 +19,15 @@ namespace VO1BAB_HFT_202231.Logic
 
         public void Create(Rents item)
         {
-            this.repo.Create(item);
+            var olditem = repo.ReadAll().FirstOrDefault(t => t.RentId == item.RentId);
+            if (olditem!=null)
+            {
+                throw new ArgumentException("The rent already exist!");
+            }
+            else
+            {
+                this.repo.Create(item);
+            }
         }
 
         public void Delete(int id)
