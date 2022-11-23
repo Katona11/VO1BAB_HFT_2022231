@@ -110,6 +110,8 @@ namespace VO1BAB_HFT_202231.Client
             }
             else if (entity == "Noncrud")
             {
+                Console.WriteLine("All method: ");
+
                 Console.WriteLine("AvgCarHP: ");
                 List<AvarageCarHP> avgcar = rest.Get<AvarageCarHP>("CrudMethod/AvarageHPperCar");
                 foreach (var item in avgcar)
@@ -117,13 +119,14 @@ namespace VO1BAB_HFT_202231.Client
                     Console.WriteLine($"{item.name} - {item.avarage}");
                 }
 
+                Console.WriteLine();
                 Console.WriteLine("MostFamousCar");
                 List<TheMostFamous> mostfamouscar = rest.Get<TheMostFamous>("CrudMethod/TheMostFamousBrand");
-                int i = 1;
+                
                 foreach (var item in mostfamouscar)
                 {
-                    Console.WriteLine($"{i}. {item.name} - {item.count}");
-                    i++;
+                    Console.WriteLine($"1. {item.name} - {item.count}");
+                    
                 }
 
 
@@ -295,7 +298,7 @@ namespace VO1BAB_HFT_202231.Client
 
 
             var noncrudSubMenu = new ConsoleMenu(args, level: 1)
-               .Add("List", () => List("Noncrud"));
+               .Add("All Noncrud method", () => List("Noncrud"));
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Car", () => carSubMenu.Show())

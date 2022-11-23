@@ -112,6 +112,24 @@ namespace VO1BAB_HFT_202231.Logic
             Year = year;
             Count = count;
         }
+        public override bool Equals(object obj)
+        {
+            YearInfo b = obj as YearInfo;
+            if (b==null)
+            {
+                return false;
+
+            }
+            else
+            {
+                return this.Year == b.Year && this.Count == b.Count;
+            }
+
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.Year, this.Count); 
+        }
     }
 
 

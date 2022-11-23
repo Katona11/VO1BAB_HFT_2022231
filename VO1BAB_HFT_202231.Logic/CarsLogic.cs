@@ -59,7 +59,7 @@ namespace VO1BAB_HFT_202231.Logic
         }
 
         //public record TheMostFamous(string name, int count);
-        public   IEnumerable<TheMostFamous> TheMostFamousBrand()
+        public  IEnumerable<TheMostFamous> TheMostFamousBrand()
         {
             var item = (from t in repo.ReadAll()
                         group t by t.CarBrand.Name into g
@@ -98,6 +98,27 @@ namespace VO1BAB_HFT_202231.Logic
             this.name = name;
             this.count = count;
         }
+        public TheMostFamous()
+        {
+
+        }
+
+        public override bool Equals(object obj)
+        {
+            TheMostFamous b = obj as TheMostFamous;
+            if (b==null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.name == b.name && this.count == b.count;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.name, this.count);
+        }
     }
 
     public class AvarageCarHP
@@ -110,6 +131,24 @@ namespace VO1BAB_HFT_202231.Logic
         {
             this.name = name;
             this.avarage = avarage;
+        }
+
+        public override bool Equals(object obj)
+        {
+            AvarageCarHP b = obj as AvarageCarHP;
+            if (b==null)
+            {
+                return false;
+            }
+            else
+            {
+               return  this.name == b.name && this.avarage == b.avarage;
+
+            }
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.name, this.avarage);
         }
     }
 }

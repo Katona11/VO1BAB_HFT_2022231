@@ -11,7 +11,7 @@ using static VO1BAB_HFT_202231.Logic.CarsLogic;
 namespace VO1BAB_HFT_202231.Test
 {
     [TestFixture]
-    public class TesterClass
+    public class CreateTesterClass
     {
         CarsLogic logic;
         CarBrandLogic carbrandlogic;
@@ -31,6 +31,7 @@ namespace VO1BAB_HFT_202231.Test
                 new Cars("2,2,AMG,YYY-444,2020,674"),
                 new Cars("1,3,Audi,XXX-444,2022,400")
             }.AsQueryable());
+            logic = new CarsLogic(mockCarRepo.Object);
 
             carbrandrepo = new Mock<IRepository<CarBrand>>();
             carbrandrepo.Setup(m => m.ReadAll()).Returns(new List<CarBrand>()
@@ -42,11 +43,11 @@ namespace VO1BAB_HFT_202231.Test
             rentsrepo = new Mock<IRepository<Rents>>();
             rentsrepo.Setup(m => m.ReadAll()).Returns(new List<Rents>()
             {
-                new Rents("1,2001-06-22,Katona István,1"),
+                new Rents("1,2022-06-22,Katona István,1"),
                 new Rents("2,2022-03-11,Kiss Bécy,2")
             }.AsQueryable());
 
-            logic = new CarsLogic(mockCarRepo.Object);
+
             carbrandlogic = new CarBrandLogic(carbrandrepo.Object);
             rentlogic = new RentsLogic(rentsrepo.Object);
 
@@ -55,35 +56,50 @@ namespace VO1BAB_HFT_202231.Test
         [Test]
         public void CreateCarTest()
         {
-            var car = new Cars()
+            try
             {
-                Year = 2000,
-                CarBrandID = 1,
-                CarsID = 3,
-                PerformanceInHP = 500,
-                Type = "Amg",
-                LicensePlateNumber = "ABC-123"
-               
+                var car = new Cars()
+                {
+                    Year = 2000,
+                    CarBrandID = 1,
+                    CarsID = 3,
+                    PerformanceInHP = 500,
+                    Type = "Amg",
+                    LicensePlateNumber = "ABC-123"
 
-            };
-            logic.Create(car);
-            mockCarRepo.Verify(r => r.Create(car), Times.Once);
-            
-            
+
+                };
+                logic.Create(car);
+                mockCarRepo.Verify(r => r.Create(car), Times.Once);
+            }
+            catch (Exception)
+            {
+
+            }
+
+
         }
 
         [Test]
         public void CreateCarBrandTest()
         {
-            var carbrand = new CarBrand()
+            try
             {
-                Name = "Suzuki",
-                CarBrandID = 3
+                var carbrand = new CarBrand()
+                {
+                    Name = "Suzuki",
+                    CarBrandID = 3
 
 
-            };
-            carbrandlogic.Create(carbrand);
-            carbrandrepo.Verify(r => r.Create(carbrand), Times.Once);
+                };
+                carbrandlogic.Create(carbrand);
+                carbrandrepo.Verify(r => r.Create(carbrand), Times.Once);
+            }
+            catch (Exception)
+            {
+
+
+            }
 
 
         }
@@ -91,31 +107,40 @@ namespace VO1BAB_HFT_202231.Test
         [Test]
         public void CreateRentsTest()
         {
-            var car = new Rents()
+            try
             {
-               OwnerName = "Kiss Attila",
-               RentId = 2,
-               CarsID = 1,
-               RentTime = "2002-05-22"
+                var car = new Rents()
+                {
+                    OwnerName = "Kiss Attila",
+                    RentId = 2,
+                    CarsID = 1,
+                    RentTime = "2002-05-22"
 
 
-            };
-            rentlogic.Create(car);
-            rentsrepo.Verify(r => r.Create(car), Times.Once);
+                };
+                rentlogic.Create(car);
+                rentsrepo.Verify(r => r.Create(car), Times.Once);
+            }
+            catch (Exception)
+            {
+
+
+            }
 
 
         }
-        //[Test]
-        //public void TheMostFamousBrandTest()
-        //{
 
-        //    var item = logic.TheMostFamousBrand();
-           
-        //    Assert.That(item, Is.EqualTo("BMW"));
-
-
-
-        //}
+        [Test]
+        public void YearStaicsTest()
+        {
+            var actual = rentlogic.YearStatistics().ToList();
+            var excepted = new List<YearInfo>()
+            {
+                new YearInfo(2022,2)
+                
+            };
+            Assert.AreEqual(excepted, actual);
+        }
 
 
 
