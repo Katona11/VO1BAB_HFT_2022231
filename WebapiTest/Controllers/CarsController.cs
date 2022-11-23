@@ -20,35 +20,35 @@ namespace VO1BAB_HFT_20231.Endpoint.Controllers
         }
 
 
-        // GET: api/<CarsController>
+       
         [HttpGet]
         public IEnumerable<Cars> ReadAll()
         {
             return logic.ReadAll();
         }
 
-        // GET api/<CarsController>/5
+       
         [HttpGet("{id}")]
         public Cars Read(int id)
         {
             return logic.Read(id);
         }
 
-        // POST api/<CarsController>
+       
         [HttpPost]
         public void Create([FromBody] Cars value)
         {
             logic.Create(value);
         }
 
-        // PUT api/<CarsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Cars value)
+        
+        [HttpPut]
+        public void Put([FromBody] Cars value)
         {
             logic.Update(value);
         }
 
-        // DELETE api/<CarsController>/5
+       
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

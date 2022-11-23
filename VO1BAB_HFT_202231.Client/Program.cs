@@ -171,9 +171,9 @@ namespace VO1BAB_HFT_202231.Client
                 int id = int.Parse(Console.ReadLine());
                 Cars one = rest.Get<Cars>(id, "car");
 
-                Console.WriteLine($"Enter the new id[old: {one.CarsID}]");
-                int carsid = int.Parse(Console.ReadLine());
-                one.CarsID = carsid;
+                //Console.WriteLine($"Enter the new id[old: {one.CarsID}]");
+                //int carsid = int.Parse(Console.ReadLine());
+                //one.CarsID = carsid;
 
                 Console.WriteLine($"Enter the new CarBrandId[old: {one.CarBrandID}]: ");
                 int carbrandid = int.Parse(Console.ReadLine());
@@ -204,9 +204,9 @@ namespace VO1BAB_HFT_202231.Client
                 int id = int.Parse(Console.ReadLine());
                 CarBrand one = rest.Get<CarBrand>(id, "carbrand");
 
-                Console.WriteLine($"Enter the new CarBrandId[old: {one.CarBrandID}]: ");
-                int carbrandid = int.Parse(Console.ReadLine());
-                one.CarBrandID = carbrandid;
+                //Console.WriteLine($"Enter the new CarBrandId[old: {one.CarBrandID}]: ");
+                //int carbrandid = int.Parse(Console.ReadLine());
+                //one.CarBrandID = carbrandid;
 
                 Console.WriteLine($"Enter the new CarBrand Name[old: {one.Name}]: ");
                 string name = Console.ReadLine();
@@ -222,9 +222,9 @@ namespace VO1BAB_HFT_202231.Client
                 int id = int.Parse(Console.ReadLine());
                 Rents one = rest.Get<Rents>(id, "rents");
 
-                Console.WriteLine($"Enter the new RentID[old: {one.RentId}]: ");
-                int rentId = int.Parse(Console.ReadLine());
-                one.RentId = rentId;
+                //Console.WriteLine($"Enter the new RentID[old: {one.RentId}]: ");
+                //int rentId = int.Parse(Console.ReadLine());
+                //one.RentId = rentId;
 
 
                 Console.WriteLine($"Enter the new  RentTime[old: {one.RentTime}]: ");

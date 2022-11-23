@@ -12,12 +12,12 @@ namespace VO1BAB_HFT_202231.Models
     public class CarBrand
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CarBrandID { get; set; }
         public string Name { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<Cars>  Cars {get ;set; }
+        public virtual ICollection<Cars>  Cars {get ; set; }
 
         
 

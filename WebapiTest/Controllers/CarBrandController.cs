@@ -35,21 +35,21 @@ namespace VO1BAB_HFT_20231.Endpoint.Controllers
             return logic.Read(id);
         }
 
-        // POST api/<CarBrandController>
+       
         [HttpPost]
         public void Create([FromBody] CarBrand value)
         {
             logic.Create(value);
         }
 
-        // PUT api/<CarBrandController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CarBrand value)
+        
+        [HttpPut]
+        public void Put([FromBody] CarBrand value)
         {
             logic.Update(value);
         }
 
-        // DELETE api/<CarBrandController>/5
+      
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

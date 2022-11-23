@@ -12,7 +12,7 @@ namespace VO1BAB_HFT_202231.Models
    public  class Rents
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RentId { get; set; }
 
         public string RentTime { get; set; }

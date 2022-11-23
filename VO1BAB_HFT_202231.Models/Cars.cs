@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace VO1BAB_HFT_202231.Models
 {
@@ -10,7 +11,7 @@ namespace VO1BAB_HFT_202231.Models
        
 
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CarsID { get; set; }
 
         public int CarBrandID { get; set; }
@@ -24,7 +25,7 @@ namespace VO1BAB_HFT_202231.Models
         public int PerformanceInHP { get; set; }
 
 
-
+        [JsonIgnore]
         public virtual ICollection<Rents> AllRents { get; set; }
 
         public virtual CarBrand CarBrand { get; set; } 
