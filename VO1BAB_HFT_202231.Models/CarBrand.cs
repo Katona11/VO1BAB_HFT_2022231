@@ -34,5 +34,23 @@ namespace VO1BAB_HFT_202231.Models
         {
             this.Cars = new HashSet<Cars>();
         }
+
+        public override bool Equals(object obj)
+        {
+
+            CarBrand b = obj as CarBrand;
+            if (b==null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.CarBrandID == b.CarBrandID && this.Name == b.Name;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.CarBrandID, this.Name);
+        }
     }
 }
