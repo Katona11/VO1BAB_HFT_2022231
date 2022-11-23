@@ -48,5 +48,11 @@ namespace VO1BAB_HFT_20231.Endpoint.Controllers
             return this.carlogic.AvarageHPperCar();
         }
 
+        [HttpGet]
+        public IEnumerable<YearInfo> YearStatistics()
+        {
+            return this.rentlogic.YearStatistics();
+        }
+
     }
     }

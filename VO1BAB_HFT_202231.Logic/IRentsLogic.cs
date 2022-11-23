@@ -23,5 +23,7 @@ namespace VO1BAB_HFT_202231.Logic
         IEnumerable<string> TheRentsCarBrand();
 
         IEnumerable<BrandperRentsCount> BrandperRentsCountsMethod();
+
+        IEnumerable<YearInfo> YearStatistics();
     }
 }

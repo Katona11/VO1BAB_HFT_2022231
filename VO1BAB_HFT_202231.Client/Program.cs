@@ -3,7 +3,7 @@ using ConsoleTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using VO1BAB_HFT_202231.Logic;
 using VO1BAB_HFT_202231.Models;
 using static VO1BAB_HFT_202231.Logic.CarsLogic;
 using static VO1BAB_HFT_202231.Logic.RentsLogic;
@@ -140,6 +140,15 @@ namespace VO1BAB_HFT_202231.Client
                 foreach (var item in brandperrents)
                 {
                     Console.WriteLine($"{item.brand} - {item.count}");
+                }
+
+
+                Console.WriteLine();
+                Console.WriteLine("YearStatics: ");
+                List<YearInfo> yearstaticslist = rest.Get<YearInfo>("CrudMethod/YearStatistics");
+                foreach (var item in yearstaticslist)
+                {
+                    Console.WriteLine($"{item.Year} - {item.Count}");
                 }
 
 

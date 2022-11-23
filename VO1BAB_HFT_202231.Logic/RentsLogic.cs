@@ -75,8 +75,18 @@ namespace VO1BAB_HFT_202231.Logic
 
             return item;
         }
+        public IEnumerable<YearInfo> YearStatistics()
+        {
+            var item = from t in repo.ReadAll()
+                       group t by int.Parse(t.RentTime.Substring(0, 4)) into g
+                       select new YearInfo(g.Key, g.Count());
+            return item;
+        }
 
-        
+
+
+
+
     }
     public class BrandperRentsCount
     {
@@ -88,6 +98,19 @@ namespace VO1BAB_HFT_202231.Logic
         {
             this.brand = brand;
             this.count = count;
+        }
+    }
+
+    public class YearInfo
+    {
+        public int Year { get; set; }
+
+        public int Count { get; set; }
+
+        public YearInfo(int year, int count)
+        {
+            Year = year;
+            Count = count;
         }
     }
 
