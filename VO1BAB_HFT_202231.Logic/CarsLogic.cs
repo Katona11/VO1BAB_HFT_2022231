@@ -58,7 +58,7 @@ namespace VO1BAB_HFT_202231.Logic
             this.repo.Update(item);
         }
 
-        public record TheMostFamous(string name, int count);
+        //public record TheMostFamous(string name, int count);
         public  TheMostFamous  TheMostFamousBrand()
         {
             var item = (from t in repo.ReadAll()
@@ -70,7 +70,7 @@ namespace VO1BAB_HFT_202231.Logic
 
             
         }
-        public record AvarageCarHP(string name,double avarage);
+        //public record AvarageCarHP(string name,double avarage);
 
         public IEnumerable<AvarageCarHP> AvarageHPperCar()
         {
@@ -88,4 +88,17 @@ namespace VO1BAB_HFT_202231.Logic
 
 
     }
+    public class TheMostFamous
+    {
+        public string name { get; set; }
+        public int count { get; set; }
+
+        public TheMostFamous(string name, int count)
+        {
+            this.name = name;
+            this.count = count;
+        }
+    }
+
+    
 }
