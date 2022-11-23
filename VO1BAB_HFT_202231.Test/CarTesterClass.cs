@@ -63,5 +63,17 @@ namespace VO1BAB_HFT_202231.Test
             };
             Assert.AreEqual(excepted, actual);
         }
+
+        [Test]
+        public void TheMostFamousBrand()
+        {
+            var actual = logic.TheMostFamousBrand().ToList();
+            var excepted = new List<TheMostFamous>
+            {
+                new TheMostFamous("Mercedes-Benz",1)
+            };
+            Assert.AreEqual(excepted, actual);
+
+        }
     }
 }
