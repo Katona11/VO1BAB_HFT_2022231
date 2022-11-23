@@ -38,15 +38,22 @@ namespace VO1BAB_HFT_202231.Models
         {
 
         }
-
-       
-
-        
-
-       
-
-
-
+        public override bool Equals(object obj)
+        {
+            Rents b = obj as Rents;
+            if (b==null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.RentId == b.RentId && this.RentTime == b.RentTime;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.RentId, this.RentTime);
+        }
 
 
 

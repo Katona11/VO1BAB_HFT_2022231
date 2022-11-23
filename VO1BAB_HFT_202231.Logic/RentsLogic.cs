@@ -99,6 +99,26 @@ namespace VO1BAB_HFT_202231.Logic
             this.brand = brand;
             this.count = count;
         }
+        public override bool Equals(object obj)
+        {
+            BrandperRentsCount b = obj as BrandperRentsCount;
+            if (b==null)
+            {
+                return false;
+            }
+            else
+            {
+                return this.brand == b.brand && this.count == b.count;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.brand, this.count);
+        }
+        public BrandperRentsCount()
+        {
+
+        }
     }
 
     public class YearInfo
