@@ -59,15 +59,15 @@ namespace VO1BAB_HFT_202231.Logic
         }
 
         //public record TheMostFamous(string name, int count);
-        public  TheMostFamous  TheMostFamousBrand()
+        public   IEnumerable<TheMostFamous> TheMostFamousBrand()
         {
             var item = (from t in repo.ReadAll()
                         group t by t.CarBrand.Name into g
                         orderby g.Count() descending
-                        select new TheMostFamous(g.Key,g.Count())).First();
+                        select new TheMostFamous(g.Key,g.Count())).Take(1);
 
             return item;
-
+            
             
         }
         //public record AvarageCarHP(string name,double avarage);

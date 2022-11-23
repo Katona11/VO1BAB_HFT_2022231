@@ -37,7 +37,7 @@ namespace VO1BAB_HFT_20231.Endpoint.Controllers
         }
 
         [HttpGet]
-        public TheMostFamous TheMostFamousBrand()
+        public IEnumerable<TheMostFamous> TheMostFamousBrand()
         {
             return carlogic.TheMostFamousBrand();
         }

@@ -117,12 +117,14 @@ namespace VO1BAB_HFT_202231.Client
                     Console.WriteLine($"{item.name} - {item.avarage}");
                 }
 
-                //Console.WriteLine("MostFamousCar");
-                //List<TheMostFamous> mostfamouscar = rest.Get<TheMostFamous>("CrudMethod/TheMostFamousBrand");
-                //foreach (var item in mostfamouscar)
-                //{
-                //    Console.WriteLine($"{item.name} - {item.count}");
-                //}
+                Console.WriteLine("MostFamousCar");
+                List<TheMostFamous> mostfamouscar = rest.Get<TheMostFamous>("CrudMethod/TheMostFamousBrand");
+                int i = 1;
+                foreach (var item in mostfamouscar)
+                {
+                    Console.WriteLine($"{i}. {item.name} - {item.count}");
+                    i++;
+                }
 
 
 
