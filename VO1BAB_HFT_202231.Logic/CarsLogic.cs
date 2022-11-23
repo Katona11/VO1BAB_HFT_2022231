@@ -100,5 +100,16 @@ namespace VO1BAB_HFT_202231.Logic
         }
     }
 
-    
+    public class AvarageCarHP
+    {
+        public string name { get; set; }
+
+        public double avarage { get; set; }
+
+        public AvarageCarHP(string name, double avarage)
+        {
+            this.name = name;
+            this.avarage = avarage;
+        }
+    }
 }
