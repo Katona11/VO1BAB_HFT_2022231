@@ -39,7 +39,8 @@ namespace VO1BAB_HFT_202231.Client
                     PerformanceInHP = horsepower,
                     Type = cartype,
                     Year = year
-                },"car");
+                },"cars");
+                ;
 
 
             }
@@ -169,11 +170,12 @@ namespace VO1BAB_HFT_202231.Client
             {
                 Console.WriteLine("Enter the Car's Id: ");
                 int id = int.Parse(Console.ReadLine());
-                Cars one = rest.Get<Cars>(id, "car");
+                Cars one = rest.Get<Cars>(id, "cars");
+                ;
 
-                //Console.WriteLine($"Enter the new id[old: {one.CarsID}]");
-                //int carsid = int.Parse(Console.ReadLine());
-                //one.CarsID = carsid;
+                Console.WriteLine($"Enter the new id[old: {one.CarsID}]");
+                int carsid = int.Parse(Console.ReadLine());
+                one.CarsID = carsid;
 
                 Console.WriteLine($"Enter the new CarBrandId[old: {one.CarBrandID}]: ");
                 int carbrandid = int.Parse(Console.ReadLine());
@@ -196,7 +198,7 @@ namespace VO1BAB_HFT_202231.Client
                 int year = int.Parse(Console.ReadLine());
                 one.Year = year;
 
-                rest.Put(one, "car");
+                rest.Put(one, "cars");
             }
             else if (entity == "CarBrand")
             {
@@ -237,9 +239,9 @@ namespace VO1BAB_HFT_202231.Client
                 one.OwnerName = ownername;
 
 
-                Console.WriteLine($"Enter the new CarId[old: {one.CarsID}]: ");
-                int carid = int.Parse(Console.ReadLine());
-                one.CarsID = carid;
+                //Console.WriteLine($"Enter the new CarId[old: {one.CarsID}]: ");
+                //int carid = int.Parse(Console.ReadLine());
+                //one.CarsID = carid;
 
                 rest.Put(one, "rents");
 
@@ -298,7 +300,8 @@ namespace VO1BAB_HFT_202231.Client
 
 
             var noncrudSubMenu = new ConsoleMenu(args, level: 1)
-               .Add("All Noncrud method", () => List("Noncrud"));
+               .Add("All Noncrud method", () => List("Noncrud"))
+               .Add("Exit", ConsoleMenu.Close);
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Car", () => carSubMenu.Show())
