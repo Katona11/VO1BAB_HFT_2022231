@@ -84,7 +84,7 @@ namespace VO1BAB_HFT_202231.Client
                 List<Cars> cars = rest.Get<Cars>("cars");
                 foreach (var item in cars)
                 {
-                    Console.WriteLine($" {item.CarsID} {item.CarBrandID} {item.LicensePlateNumber} {item.PerformanceInHP} {item.Type} {item.Year}");
+                    Console.WriteLine($" {item.CarsID} {item.CarBrand.Name} {item.LicensePlateNumber} {item.PerformanceInHP} {item.Type} {item.Year}");
 
                 }
 
@@ -256,7 +256,7 @@ namespace VO1BAB_HFT_202231.Client
             {
                 Console.WriteLine("Enter the Car's id to delete: ");
                 int id = int.Parse(Console.ReadLine());
-                rest.Delete(id, "car");
+                rest.Delete(id, "cars");
             }
             else if (entity == "CarBrand")
             {

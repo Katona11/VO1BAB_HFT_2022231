@@ -57,10 +57,29 @@ namespace VO1BAB_HFT_202231.Repository
 
             modelBuilder.Entity<Rents>().HasData(new Rents[]
             {
-                new Rents("1,2022-10-11,Kovács Attila,1"),
-                new Rents("2,2022-10-11,Kovács Anna,2"),
-                new Rents("3,2022-10-11,Lakatos Béla,1"),
-                new Rents("4,2022-10-11,Lakatos Béla,1")
+                 new Rents("1,2022-10-11,Kovács Attila,1"),
+                 new Rents("2,2022-10-11,Kovács Anna,2"),
+                 new Rents("3,2022-10-11,Lakatos Béla,4"),
+                 new Rents("4,2022-10-21,Lakatos Béla,5"),
+                 new Rents("5,2022-11-12,Medgyesi Áron,2"),
+                 new Rents("6,2020-07-22,Kovács József,4"),
+                 new Rents("7,2021-11-01,Lakatos Béla,2"),
+                 new Rents("8,2021-12-12,Varga Tamás,4"),
+                 new Rents("9,2019-10-04,Lakatos Béla,5"),
+                 new Rents("10,2022-12-11,Száraz Tamás,1"),
+                 new Rents("11,2022-11-13,Nagy László,3"),
+                 new Rents("12,2022-11-14,Szabó Bence,1"),
+                 new Rents("13,2022-11-20,Kiss Dániel,4"),
+                 new Rents("14,2022-11-22,Varga Tamás,2"),
+                 new Rents("15,2022-11-26,Lakatos Béla,1"),
+                 new Rents("16,2022-12-03,Lakatos Márk,3"),
+                 new Rents("17,2021-01-11,Kovács Dávid,2"),
+                 new Rents("18,2019-03-02,Képes Dávid,1"),
+                 new Rents("19,2019-06-06,Kiss Dániel,6"),
+                 new Rents("20,2019-05-14,Kiss Dániel,6"),
+
+
+                
             }) ;
 
 
