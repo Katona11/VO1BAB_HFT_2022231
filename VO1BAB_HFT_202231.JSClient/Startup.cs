@@ -28,6 +28,9 @@ namespace VO1BAB_HFT_202231.JSClient
 
             app.UseRouting();
 
+
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>

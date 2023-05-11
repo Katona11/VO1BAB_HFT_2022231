@@ -2,9 +2,31 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Car DataBase</title>
 </head>
 <body>
+    <h1>CarBrand</h1>
 
+    <div id="formdiv">
+        <label>Carbrand name:</label>
+        <input type="text" id="carbrandname" />
+        <button type="button" onclick="create()">Add new carbrand</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+
+            </tr>
+
+        </thead>
+        <tbody id="resultarea">
+            
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
 </body>
 </html>

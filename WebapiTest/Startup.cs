@@ -45,6 +45,7 @@ namespace VO1BAB_HFT_20231.Endpoint
                 x.AddDefaultPolicy(policy =>
                 {
                     policy.WithOrigins("http://127.0.0.1:5500");
+                    policy.WithOrigins("http://localhost:4784");
                     policy.AllowAnyHeader();
                     policy.AllowAnyMethod();
                     policy.AllowCredentials();
