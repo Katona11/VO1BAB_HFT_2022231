@@ -14,8 +14,9 @@ async function getData() {
 
 
 function display() {
+    document.querySelector("#resultarea").innerHTML = "";
     carbrand.forEach(t => {
-        document.querySelector("#resultarea").innerHTML +=
+        document.querySelector("#resultarea").innerHTML  += 
             "<tr><td>" + t.carBrandID + "</td><td>" + t.name + "</td><td>" +
             `<button type="button" onclick="remove(${t.carBrandID})">Delete</button>` + "</td ></tr > ";
     })
