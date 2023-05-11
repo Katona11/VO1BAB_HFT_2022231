@@ -16,9 +16,29 @@ async function getData() {
 function display() {
     carbrand.forEach(t => {
         document.querySelector("#resultarea").innerHTML +=
-            "<tr><td>" + t.carBrandID + "</td><td>" + t.name + "</td></tr>";
+            "<tr><td>" + t.carBrandID + "</td><td>" + t.name + "</td><td>" +
+            `<button type="button" onclick="remove(${t.carBrandID})">Delete</button>` + "</td ></tr > ";
     })
     
+}
+
+function remove(id) {
+    fetch('http://localhost:50437/carbrand/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+
+            console.log('Success:', data);
+            getData();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
 
