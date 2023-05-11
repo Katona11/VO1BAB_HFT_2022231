@@ -39,23 +39,36 @@ namespace VO1BAB_HFT_20231.Endpoint
             services.AddTransient<ICarBrandLogic, CarBrandLogic>();
             services.AddTransient<IRentsLogic, RentsLogic>();
             services.AddControllers();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "VO1BAB_HFT_20231.Endpoint", Version = "v1" });
-            //});
+            services.AddCors();
+            services.AddCors(x =>
+            {
+                x.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("http://127.0.0.1:5500");
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                    policy.AllowCredentials();
+                });
+            });
+
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "VO1BAB_HFT_20231.Endpoint", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VO1BAB_HFT_20231.Endpoint v1"));
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VO1BAB_HFT_20231.Endpoint v1"));
+            }
 
-
+            app.UseCors();
 
             app.UseRouting();
 
@@ -65,6 +78,14 @@ namespace VO1BAB_HFT_20231.Endpoint
             {
                 endpoints.MapControllers();
             });
+
+            //app.UseCors(t => t
+            //.WithOrigins("http://127.0.0.1:5500")
+            //.AllowAnyHeader()
+            //.AllowCredentials()
+            //.AllowAnyMethod());
+          
+
         }
     }
 }
