@@ -28,6 +28,7 @@ namespace VO1BAB_HFT_202231.Models
         [JsonIgnore]
         public virtual ICollection<Rents> AllRents { get; set; }
         
+
         public virtual CarBrand CarBrand { get; set; } 
 
         
