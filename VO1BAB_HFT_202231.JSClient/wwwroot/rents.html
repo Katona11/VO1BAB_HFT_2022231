@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rents DataBase</title>
+</head>
+<body>
+
+    <a href="cars.html">Cars Database</a>
+
+    <h1>Rents</h1>
+    <hr />
+
+
+    <div id="formdiv">
+
+ 
+        <label>RentTime:</label>
+        <input type="text" id="renttime" />
+
+
+        <label>Owner Name: </label>
+        <input type="text" id="ownername" />
+
+
+        <label>CarsID:</label>
+        <input type="number" id="carsid" />
+
+
+
+
+
+        <button type="button" onclick="create()">Add new Rent</button>
+    </div>
+
+    <div id="formdiv">
+        <label>Carbrand name:</label>
+        <input type="text" id="carbrandname" />
+        <button type="button" onclick="create()">Add new carbrand</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>RentId</th>
+                <th>RentTime</th>
+                <th>OwnerName</th>
+                <th>CarsID</th>
+                <th>Actions</th>
+
+
+            </tr>
+
+        </thead>
+        <tbody id="rentsarea">
+        </tbody>
+    </table>
+
+
+
+
+    <script src="rentsapp.js"></script>
+
+</body>
+</html>
