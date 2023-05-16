@@ -30,7 +30,7 @@ async function getData() {
    /* car = data2;*/
    
     display();
-    display2();
+    
 }
 
 function display() {
