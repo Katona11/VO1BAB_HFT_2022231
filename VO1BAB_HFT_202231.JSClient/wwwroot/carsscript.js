@@ -30,7 +30,7 @@ function display() {
     document.querySelector("#carsarea").innerHTML = "";
     car.forEach(t => {
         document.querySelector("#carsarea").innerHTML +=
-            "<tr><td>" + t.carsID + "</td><td>" + t.carBrandID + "</td><td>" + t.licensePlateNumber + "</td><td>" + t.year + "</td><td>" + t.type + "</td><td>" + t.performanceInHP + "</td><td>" + t.carBrand.carBrandID + "</td><td>" + t.carBrand.name + "</td><td>" +
+            "<tr><td>" + t.carsID + "</td><td>" + t.carBrandID + "</td><td>" + t.licensePlateNumber + "</td><td>" + t.year + "</td><td>" + t.type + "</td><td>" + t.performanceInHP + "</td><td>" + t.carBrand.name + "(" + t.carBrandID + ")" + "</td><td>" +
             `<button type="button" onclick="remove(${t.carsID})">Delete</button>` +
             `<button type="button" onclick="showupdate(${t.carsID})">Update</button>` + "</td ></tr > ";
     })
