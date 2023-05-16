@@ -1,6 +1,8 @@
 ﻿let carbrand = [];
 /*let car = [];*/
 
+let carbrandidtoupdate = -1;
+
 
 getData();
 
@@ -36,10 +38,20 @@ function display() {
     carbrand.forEach(t => {
         document.querySelector("#resultarea").innerHTML  += 
             "<tr><td>" + t.carBrandID + "</td><td>" + t.name + "</td><td>" +
-            `<button type="button" onclick="remove(${t.carBrandID})">Delete</button>` + "</td ></tr > ";
+            `<button type="button" onclick="remove(${t.carBrandID})">Delete</button>`+
+            `<button type="button" onclick="showupdate(${t.carBrandID})">Update</button>` + "</td ></tr > ";
     })
     
 }
+
+
+
+function showupdate(id) {
+    document.querySelector("#carbrandnameupdate").value = carbrand.find(t => t['carBrandID'] == id)['name'];
+    document.querySelector("#updateformdiv").style.display = 'flex';
+    carbrandidtoupdate = id;
+}
+
 
 //function display2() {
 //    document.querySelector("#carsarea").innerHTML = "";
@@ -50,6 +62,33 @@ function display() {
 //    })
 
 //}
+
+function update() {
+    document.querySelector("#updateformdiv").style.display = 'none';
+    let names = document.querySelector("#carbrandnameupdate").value;
+    fetch('http://localhost:50437/carbrand', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+                name: names,
+                carBrandID: carbrandidtoupdate
+            }),
+    })
+        .then(response => response)
+        .then(data => {
+
+            console.log('Success:', data);
+            getData();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+
+}
 
 
 
