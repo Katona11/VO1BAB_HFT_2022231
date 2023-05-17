@@ -1,0 +1,43 @@
+﻿.statistics{
+    border: 2px solid black;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: 10px;
+}
+.statistics div {
+    padding: 10px;
+}
+.statistics h3 {
+    padding: 10px;
+}
+
+header {
+    background-color: lightgray;
+    height: 25px;
+    border: 2px solid black;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+header a {
+   
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+
+    
+
+}
+body{
+    background-color: darkgrey;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+
+}

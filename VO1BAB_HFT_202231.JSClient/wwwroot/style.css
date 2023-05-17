@@ -54,3 +54,23 @@ table button {
 #updateformdiv label {
     font-weight: bolder;
 }
+
+header {
+    background-color: lightgray;
+    height: 20px;
+    border: 2px solid black;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+    
+}
+
+header a {
+        font-size: 20px;
+        margin-right: 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: black;
+        margin: 10px;
+        
+ }
