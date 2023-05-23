@@ -17,20 +17,27 @@
             <ColumnDefinition Width="920"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="800"/>
-            <RowDefinition Height="800"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        
-            <ListBox ItemsSource="{Binding Carbrand}" SelectedItem="{Binding SelectedCarBrand}" Grid.Column="0" Grid.Row="0" Margin="10">
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="500"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="800"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="800"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="500"/>
+                <RowDefinition Height="500"/>
+                <RowDefinition Height="500"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold" Content="CarBrand" FontSize="50" Padding="0,0,50,30" HorizontalAlignment="Center"></Label>
+            <ListBox ItemsSource="{Binding Carbrand}" SelectedItem="{Binding SelectedCarBrand}" Grid.Column="0" Grid.Row="1" Margin="0,0,50,100">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1" Grid.Row="0" Margin="10">
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,0,50,100">
             <Label Content="Name" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedCarBrand.Name}" Padding="10" Margin="0,0,0,30"/>
             <Button Content="Create CarBrand" Command="{Binding CreateCarBrandCommand}" Margin="10" Padding="10"></Button>
@@ -38,7 +45,9 @@
             <Button Content="Update CarBrand" Command="{Binding UpdateCrandBrandCommand}" Margin="10" Padding="10"></Button>
         </StackPanel>
 
-        <ListBox ItemsSource="{Binding cars}" Grid.Column="0" Grid.Row="1" Margin="10" SelectedItem="{Binding SelectedCar}">
+            <Label Grid.ColumnSpan="2" Grid.Row="2" FontWeight="Bold" Content="Cars" FontSize="50" Padding="0,0,50,30" HorizontalAlignment="Center"></Label>
+
+            <ListBox ItemsSource="{Binding cars}" Grid.Column="0" Grid.Row="3" Margin="0,0,50,100" SelectedItem="{Binding SelectedCar}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -55,7 +64,7 @@
         </ListBox>
 
        
-            <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+            <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,0,50,100">
             <Label Content="Carbrand" Background="LightBlue" Padding="10"></Label>
             <TextBox Text="{Binding SelectedCar.CarBrandID}" Padding="10" Margin="0,0,0,30"/>
 
@@ -79,7 +88,9 @@
 
         </StackPanel>
 
-            <ListBox ItemsSource="{Binding rents}" SelectedItem="{Binding SelectedRentitem}" Margin="10" Grid.Column="0" Grid.Row="2">
+            <Label Grid.ColumnSpan="2" Grid.Row="4" FontWeight="Bold" Content="Rents" FontSize="50" Padding="0,0,50,30" HorizontalAlignment="Center"></Label>
+
+            <ListBox ItemsSource="{Binding rents}" SelectedItem="{Binding SelectedRentitem}" Margin="0,0,50,100" Grid.Column="0" Grid.Row="5">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -92,7 +103,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <StackPanel Margin="10" Grid.Column="1" Grid.Row="2">
+            <StackPanel Margin="0,0,50,100" Grid.Column="1" Grid.Row="5">
                 <Label Content="Owner Name" Padding="10" Background="LightBlue"/>
                 <TextBox Text="{Binding SelectedRentitem.OwnerName}"  Margin="0,0,0,30" Padding="10"/>
 
@@ -110,9 +121,84 @@
                 <Button Content="Update Rent" Command="{Binding UpdateRentCarCommand}" Padding="10" Margin="10"/>
 
             </StackPanel>
-        
+
+            <Label Grid.ColumnSpan="2" Grid.Row="6" FontWeight="Bold" Content="Non-Crud Methods" FontSize="50" Padding="0,0,50,50" HorizontalAlignment="Center"></Label>
+
+            <ListBox ItemsSource="{Binding themostfamous}" Grid.Column="0" Grid.Row="7" Margin="0,0,50,50" Background="LightGray">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Themostfamousbrand:"></Label>
+                            <Label Content="{Binding name}"></Label>
+                            <Label Content="{Binding count}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox ItemsSource="{Binding therentscarbrand}" Grid.Column="1" Grid.Row="7" Margin="0,0,50,50" Background="LightGray">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
 
-    </Grid>
+            <ListBox ItemsSource="{Binding brandperRentsCounts}" Grid.Column="0" Grid.Row="8" Margin="0,0,50,50" Background="LightGray">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding brand}"/>
+                            <Label Content="{Binding count}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+            <ListBox ItemsSource="{Binding avarageCarHPs}" Grid.Column="1" Grid.Row="8" Margin="0,0,50,50" Background="LightGray">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding name}"/>
+                            <Label Content="{Binding avarage}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+            <ListBox ItemsSource="{Binding yearInfos}" Grid.Column="0" Grid.Row="9" Margin="0,0,50,50" Background="LightGray">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="YearStatistics" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="{Binding Year}"/>
+                            <Label Content="{Binding Count}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </Grid>
     </ScrollViewer>
 </Window>

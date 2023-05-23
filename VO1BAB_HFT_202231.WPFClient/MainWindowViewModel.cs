@@ -6,18 +6,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using VO1BAB_HFT_202231.Logic;
 using VO1BAB_HFT_202231.Models;
 
 namespace VO1BAB_HFT_202231.WPFClient
 {
+    
     public  class MainWindowViewModel:ObservableRecipient
     {
+       
         public RestCollection<CarBrand> Carbrand { get; set; }
 
         public RestCollection<Cars> cars { get; set; }
 
         public RestCollection<Rents> rents { get; set; }
+
+
+        public  List<TheMostFamous> themostfamous { get; set; }
+
+        public List<string> therentscarbrand { get; set; }
+
+        public List<BrandperRentsCount> brandperRentsCounts { get; set; }
+
+        public List<AvarageCarHP> avarageCarHPs { get; set; }   
+
+
+        public List<YearInfo> yearInfos { get; set; }
+
+
 
 
 
@@ -127,6 +145,15 @@ namespace VO1BAB_HFT_202231.WPFClient
             Carbrand = new RestCollection<CarBrand>("http://localhost:50437/", "carbrand");
             cars = new RestCollection<Cars>("http://localhost:50437/", "cars");
             rents = new RestCollection<Rents>("http://localhost:50437/", "rents");
+            //themostfamous = new RestCollection<TheMostFamous>("http://localhost:50437/", "CrudMethod/TheMostFamousBrand");
+            themostfamous = new RestService("http://localhost:50437/").Get<TheMostFamous>("CrudMethod/TheMostFamousBrand");
+            therentscarbrand = new RestService("http://localhost:50437/").Get<string>("CrudMethod/TheRentsCarBrand");
+            brandperRentsCounts = new RestService("http://localhost:50437/").Get<BrandperRentsCount>("CrudMethod/BrandperRentsCountsMethod");
+            avarageCarHPs = new RestService("http://localhost:50437/").Get<AvarageCarHP>("CrudMethod/AvarageHPperCar");
+            yearInfos = new RestService("http://localhost:50437/").Get<YearInfo>("CrudMethod/YearStatistics");
+            
+
+
 
             CreateCarBrandCommand = new RelayCommand(() =>
             {
@@ -222,5 +249,10 @@ namespace VO1BAB_HFT_202231.WPFClient
 
 
         }
+    }
+
+    public class Therentscarbrand
+    {
+        public string Name { get; set; }
     }
 }
