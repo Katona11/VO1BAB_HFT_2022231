@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace VO1BAB_HFT_202231.Client
 {
-    class RestService
+    public class RestService
     {
         HttpClient client;
 
