@@ -142,9 +142,9 @@ namespace VO1BAB_HFT_202231.WPFClient
         public MainWindowViewModel()
         {
             
-            Carbrand = new RestCollection<CarBrand>("http://localhost:50437/", "carbrand");
-            cars = new RestCollection<Cars>("http://localhost:50437/", "cars");
-            rents = new RestCollection<Rents>("http://localhost:50437/", "rents");
+            Carbrand = new RestCollection<CarBrand>("http://localhost:50437/", "carbrand","hub");
+            cars = new RestCollection<Cars>("http://localhost:50437/", "cars","hub");
+            rents = new RestCollection<Rents>("http://localhost:50437/", "rents", "hub");
             //themostfamous = new RestCollection<TheMostFamous>("http://localhost:50437/", "CrudMethod/TheMostFamousBrand");
             themostfamous = new RestService("http://localhost:50437/").Get<TheMostFamous>("CrudMethod/TheMostFamousBrand");
             therentscarbrand = new RestService("http://localhost:50437/").Get<string>("CrudMethod/TheRentsCarBrand");

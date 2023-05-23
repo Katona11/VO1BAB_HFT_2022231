@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using VO1BAB_HFT_202231.Logic;
 using VO1BAB_HFT_202231.Models;
 using VO1BAB_HFT_202231.Repository;
+using VO1BAB_HFT_20231.Endpoint.Services;
 
 namespace VO1BAB_HFT_20231.Endpoint
 {
@@ -52,6 +53,7 @@ namespace VO1BAB_HFT_20231.Endpoint
                 });
             });
 
+            services.AddSignalR();
 
             services.AddSwaggerGen(c =>
             {
@@ -78,6 +80,7 @@ namespace VO1BAB_HFT_20231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
 
             //app.UseCors(t => t
@@ -85,6 +88,8 @@ namespace VO1BAB_HFT_20231.Endpoint
             //.AllowAnyHeader()
             //.AllowCredentials()
             //.AllowAnyMethod());
+
+
           
 
         }
