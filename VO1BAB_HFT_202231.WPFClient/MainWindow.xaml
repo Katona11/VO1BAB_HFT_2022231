@@ -5,28 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VO1BAB_HFT_202231.WPFClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1000">
+        Title="MainWindow" Height="1080" Width="1920">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid Height="784" VerticalAlignment="Bottom">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1000"/>
+            <ColumnDefinition Width="920"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Carbrand}" SelectedItem="{Binding SelectedCarBrand}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="800"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ListBox ItemsSource="{Binding Carbrand}" SelectedItem="{Binding SelectedCarBrand}" Grid.Column="0" Grid.Row="0" Margin="10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="10">
             <Label Content="Name" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedCarBrand.Name}" Padding="10" Margin="0,0,0,30"/>
             <Button Content="Create CarBrand" Command="{Binding CreateCarBrandCommand}" Margin="10" Padding="10"></Button>
             <Button Content="Delete CarBrand" Command="{Binding DeleteCarBrandCommand}" Margin="10" Padding="10"></Button>
             <Button Content="Update CarBrand" Command="{Binding UpdateCrandBrandCommand}" Margin="10" Padding="10"></Button>
+        </StackPanel>
+
+        <ListBox ItemsSource="{Binding cars}" Grid.Column="0" Grid.Row="1" Margin="10" SelectedItem="{Binding SelectedCar}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding CarsID}"/>
+                        <Label Content="{Binding CarBrand.Name}"/>
+                        <Label Content="{Binding Year}"/>
+                        <Label Content="{Binding Type}"/>
+                        <Label Content="{Binding PerformanceInHP}"/>
+                        <Label Content="{Binding LicensePlateNumber}"/>
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+            <Label Content="Carbrand" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedCar.CarBrandID}" Padding="10" Margin="0,0,0,30"/>
+
+            <Label Content="Type" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedCar.Type}" Padding="10" Margin="0,0,0,30"/>
+
+            <Label Content="Year" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedCar.Year}" Padding="10" Margin="0,0,0,30"/>
+
+            <Label Content="HP" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedCar.PerformanceInHP}" Padding="10" Margin="0,0,0,30"/>
+
+            <Label Content="License Plate Number" Background="LightBlue" Padding="10"></Label>
+            <TextBox Text="{Binding SelectedCar.LicensePlateNumber}" Padding="10" Margin="0,0,0,30"/>
+
+
+            <Button Content="Create Car" Command="{Binding CreateCarCommand}" Padding="10" Margin="10"/>
+            <Button Content="Delete Car" Command="{Binding DeleteCarCommand}" Padding="10" Margin="10"/>
+            <Button Content="Update Car" Command="{Binding UpdateCrandCommand}" Padding="10" Margin="10"/>
+
+
+
         </StackPanel>
     </Grid>
 </Window>
