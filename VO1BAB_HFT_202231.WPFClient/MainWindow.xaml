@@ -175,7 +175,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="YearStatistics" FontSize="20" FontWeight="Bold"/>
+                            
                             <Label Content="{Binding Year}"/>
                             <Label Content="{Binding Count}" />
                         </StackPanel>
