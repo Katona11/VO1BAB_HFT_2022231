@@ -1,6 +1,46 @@
 ﻿let rents = [];
 let carbrandidtoupdate = -1;
+let connection = null;
 getData();
+setupSignalR();
+
+
+
+function setupSignalR() {
+    connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:50437/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on("RentsCreated", (user, message) => {
+        getData();
+    });
+
+    connection.on("RentsDeleted", (user, message) => {
+        getData();
+    });
+
+    connection.on("RentsUpdated", (user, message) => {
+        getData();
+    });
+
+    connection.onclose(async () => {
+        await start();
+    });
+    start();
+
+
+}
+
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
+    }
+};
 
 async function getData() {
     let resp = await fetch("http://localhost:50437/rents");
