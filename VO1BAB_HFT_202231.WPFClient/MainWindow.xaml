@@ -9,18 +9,21 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
+    <ScrollViewer CanContentScroll="True">
+        <Grid>
+        
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1000"/>
             <ColumnDefinition Width="920"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
             <RowDefinition Height="800"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="800"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding Carbrand}" SelectedItem="{Binding SelectedCarBrand}" Grid.Column="0" Grid.Row="0" Margin="10">
+        
+            <ListBox ItemsSource="{Binding Carbrand}" SelectedItem="{Binding SelectedCarBrand}" Grid.Column="0" Grid.Row="0" Margin="10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
@@ -50,7 +53,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+
+       
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
             <Label Content="Carbrand" Background="LightBlue" Padding="10"></Label>
             <TextBox Text="{Binding SelectedCar.CarBrandID}" Padding="10" Margin="0,0,0,30"/>
 
@@ -72,7 +77,42 @@
             <Button Content="Update Car" Command="{Binding UpdateCrandCommand}" Padding="10" Margin="10"/>
 
 
-
         </StackPanel>
+
+            <ListBox ItemsSource="{Binding rents}" SelectedItem="{Binding SelectedRentitem}" Margin="10" Grid.Column="0" Grid.Row="2">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding RentId}"/>
+                            <Label Content="{Binding RentTime}"/>
+                            <Label Content="{Binding OwnerName}"/>
+                            <Label Content="{Binding CarsID}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Margin="10" Grid.Column="1" Grid.Row="2">
+                <Label Content="Owner Name" Padding="10" Background="LightBlue"/>
+                <TextBox Text="{Binding SelectedRentitem.OwnerName}"  Margin="0,0,0,30" Padding="10"/>
+
+
+                <Label Content="Rent Date" Padding="10" Background="LightBlue"/>
+                <TextBox Text="{Binding SelectedRentitem.RentTime}"  Margin="0,0,0,30" Padding="10"/>
+
+
+                <Label Content="Cars ID" Padding="10" Background="LightBlue"/>
+                <TextBox Text="{Binding SelectedRentitem.CarsID}"  Margin="0,0,0,30" Padding="10"/>
+
+
+                <Button Content="Create Rent" Command="{Binding CreateRentCarCommand}" Padding="10" Margin="10"/>
+                <Button Content="Delete Rent" Command="{Binding DeleteRentCarCommand}" Padding="10" Margin="10"/>
+                <Button Content="Update Rent" Command="{Binding UpdateRentCarCommand}" Padding="10" Margin="10"/>
+
+            </StackPanel>
+        
+
+
     </Grid>
+    </ScrollViewer>
 </Window>

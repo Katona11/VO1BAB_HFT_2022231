@@ -17,6 +17,10 @@ namespace VO1BAB_HFT_202231.WPFClient
 
         public RestCollection<Cars> cars { get; set; }
 
+        public RestCollection<Rents> rents { get; set; }
+
+
+
         public ICommand CreateCarBrandCommand { get; set; }
 
         public ICommand DeleteCarBrandCommand { get; set; }
@@ -29,6 +33,13 @@ namespace VO1BAB_HFT_202231.WPFClient
         public ICommand DeleteCarCommand { get; set; }
 
         public ICommand UpdateCrandCommand { get; set; }
+
+
+        public ICommand CreateRentCarCommand { get; set; }
+
+        public ICommand DeleteRentCarCommand { get; set; }
+
+        public ICommand UpdateRentCarCommand { get; set; }
 
 
         private CarBrand selectedCarBrand;
@@ -82,6 +93,30 @@ namespace VO1BAB_HFT_202231.WPFClient
             }
         }
 
+        private Rents selectedRentitem;
+
+        public Rents SelectedRentitem
+        {
+            get { return selectedRentitem; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedRentitem = new Rents()
+                    {
+                        RentId = value.RentId,
+                        RentTime = value.RentTime,
+                        CarsID = value.CarsID,
+                        OwnerName = value.OwnerName,
+
+                    };
+                    OnPropertyChanged();
+                    (DeleteRentCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
+        }
+
+
 
 
 
@@ -91,6 +126,8 @@ namespace VO1BAB_HFT_202231.WPFClient
             
             Carbrand = new RestCollection<CarBrand>("http://localhost:50437/", "carbrand");
             cars = new RestCollection<Cars>("http://localhost:50437/", "cars");
+            rents = new RestCollection<Rents>("http://localhost:50437/", "rents");
+
             CreateCarBrandCommand = new RelayCommand(() =>
             {
                 Carbrand.Add(new CarBrand()
@@ -112,6 +149,8 @@ namespace VO1BAB_HFT_202231.WPFClient
             {
                 return SelectedCarBrand != null;
             });
+
+            //-----------------------------------------------------------
 
             CreateCarCommand = new RelayCommand(() =>
             {
@@ -140,7 +179,39 @@ namespace VO1BAB_HFT_202231.WPFClient
                 return SelectedCar != null;
             });
 
+            //---------------------------------------------------------
 
+
+
+            CreateRentCarCommand = new RelayCommand(() =>
+            {
+                rents.Add(new Rents()
+                {
+                   CarsID = SelectedRentitem.CarsID,
+                   OwnerName = SelectedRentitem.OwnerName,
+                   RentTime = SelectedRentitem.RentTime,
+                   //RentId = SelectedRentitem.RentId,
+                });
+            });
+
+
+            UpdateRentCarCommand = new RelayCommand(() =>
+            {
+                rents.Update(SelectedRentitem);
+            });
+
+            DeleteRentCarCommand = new RelayCommand(() =>
+            {
+                rents.Delete(SelectedRentitem.RentId);
+            },
+            () =>
+            {
+                return selectedRentitem != null;
+            });
+
+
+
+            selectedRentitem = new Rents();
             selectedCar = new Cars();
             SelectedCarBrand = new CarBrand();
 
