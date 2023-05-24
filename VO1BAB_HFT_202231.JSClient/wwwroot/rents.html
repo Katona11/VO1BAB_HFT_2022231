@@ -7,74 +7,78 @@
 </head>
 <body>
 
-    <a href="cars.html">Cars Database</a>
+    <header>
+        <a href="cars.html">Cars Database</a>
+        <a href="index.html">CarBrand Database</a>
+        <a href="statisztika.html">Statisztika</a>
+    </header>
 
     <h1>Rents</h1>
-    <hr />
+    
+    <div class="container">
+
+        <div id="formdiv">
 
 
-    <div id="formdiv">
+            <label>RentTime:</label>
+            <input type="text" id="renttime" />
 
 
-        <label>RentTime:</label>
-        <input type="text" id="renttime" />
+            <label>Owner Name: </label>
+            <input type="text" id="ownername" />
 
 
-        <label>Owner Name: </label>
-        <input type="text" id="ownername" />
-
-
-        <label>CarsID:</label>
-        <input type="number" id="carsid" />
+            <label>CarsID:</label>
+            <input type="number" id="carsid" />
 
 
 
 
 
-        <button type="button" onclick="create()">Add new Rent</button>
+            <button type="button" onclick="create()">Add new Rent</button>
+        </div>
+
+
+
+        <div id="updateformdiv">
+
+
+            <label>RentTime:</label>
+            <input type="text" id="renttimeupdate" />
+
+
+            <label>Owner Name: </label>
+            <input type="text" id="ownernameupdate" />
+
+
+            <label>CarsID:</label>
+            <input type="number" id="carsidupdate" />
+
+
+
+
+
+            <button type="button" onclick="update()">Update Rent</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>RentId</th>
+                    <th>RentTime</th>
+                    <th>OwnerName</th>
+                    <th>CarsID</th>
+                    <th>Actions</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody id="rentsarea">
+            </tbody>
+        </table>
+
     </div>
-
-
-
-    <div id="updateformdiv">
-
-
-        <label>RentTime:</label>
-        <input type="text" id="renttimeupdate" />
-
-
-        <label>Owner Name: </label>
-        <input type="text" id="ownernameupdate" />
-
-
-        <label>CarsID:</label>
-        <input type="number" id="carsidupdate" />
-
-
-
-
-
-        <button type="button" onclick="update()">Update Rent</button>
-    </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th>RentId</th>
-                <th>RentTime</th>
-                <th>OwnerName</th>
-                <th>CarsID</th>
-                <th>Actions</th>
-
-
-            </tr>
-
-        </thead>
-        <tbody id="rentsarea">
-        </tbody>
-    </table>
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="rentsapp.js"></script>

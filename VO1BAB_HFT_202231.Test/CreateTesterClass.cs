@@ -78,7 +78,7 @@ namespace VO1BAB_HFT_202231.Test
             }
 
 
-        }
+}
 
         [Test]
         public void CreateCarBrandTest()

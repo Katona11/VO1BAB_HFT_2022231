@@ -6,95 +6,106 @@
     <title>Car DataBase</title>
 </head>
 <body>
+
+    <header>
+        <a href="rents.html">Rents Database</a>
+        <a href="index.html">CarBrand Database</a>
+        <a href="statisztika.html">Statisztika</a>
+    </header>
+
+
     <h1>Car</h1>
 
-    <hr />
+    <div class="container">
 
-    <div id="formdiv">
-
-
-        <label>CarBrand ID:</label>
-        <input type="text" id="carbrandid" />
+        <div id="formdiv">
 
 
-        <label>LicensePlateNumber:</label>
-        <input type="text" id="licensePlateNumber" />
+            <label>CarBrand ID:</label>
+            <input type="text" id="carbrandid" />
 
 
-        <label>Year:</label>
-        <input type="number" id="year" />
+            <label>LicensePlateNumber:</label>
+            <input type="text" id="licensePlateNumber" />
 
 
-        <label>Type: </label>
-        <input type="text" id="type" />
+            <label>Year:</label>
+            <input type="number" id="year" />
 
 
-        <label>PerformanceInHP:</label>
-        <input type="number" id="performanceInHP" />
+            <label>Type: </label>
+            <input type="text" id="type" />
 
 
+            <label>PerformanceInHP:</label>
+            <input type="number" id="performanceInHP" />
 
 
 
-        <button type="button" onclick="create()">Add new Car</button>
+
+
+            <button type="button" onclick="create()">Add new Car</button>
+        </div>
+
+
+
+        <div id="updateformdiv">
+
+
+            <label>CarBrand ID:</label>
+            <input type="text" id="carbrandidupdate" />
+
+
+            <label>LicensePlateNumber:</label>
+            <input type="text" id="licensePlateNumberupdate" />
+
+
+            <label>Year:</label>
+            <input type="number" id="yearupdate" />
+
+
+            <label>Type: </label>
+            <input type="text" id="typeupdate" />
+
+
+            <label>PerformanceInHP:</label>
+            <input type="number" id="performanceInHPupdate" />
+
+
+
+
+
+            <button type="button" onclick="update()">Update Car</button>
+        </div>
+
+        <!--<div id="formdiv">
+            <label>Carbrand name:</label>
+            <input type="text" id="carbrandname" />
+            <button type="button" onclick="create()">Add new carbrand</button>
+        </div>-->
+        <table>
+            <thead>
+                <tr>
+                    <th>CarID</th>
+                    <th>CarBrandID</th>
+                    <th>LicensePlateNumber</th>
+                    <th>Year</th>
+                    <th>Type</th>
+                    <th>PerformanceInHP</th>
+                    <th>CarBrand Name</th>
+                    <th>Actions</th>
+
+
+
+                </tr>
+
+            </thead>
+            <tbody id="carsarea">
+            </tbody>
+        </table>
+
+
     </div>
-
-
-
-    <div id="updateformdiv">
-
-
-        <label>CarBrand ID:</label>
-        <input type="text" id="carbrandidupdate" />
-
-
-        <label>LicensePlateNumber:</label>
-        <input type="text" id="licensePlateNumberupdate" />
-
-
-        <label>Year:</label>
-        <input type="number" id="yearupdate" />
-
-
-        <label>Type: </label>
-        <input type="text" id="typeupdate" />
-
-
-        <label>PerformanceInHP:</label>
-        <input type="number" id="performanceInHPupdate" />
-
-
-
-
-
-        <button type="button" onclick="update()">Update Car</button>
-    </div>
-
-    <!--<div id="formdiv">
-        <label>Carbrand name:</label>
-        <input type="text" id="carbrandname" />
-        <button type="button" onclick="create()">Add new carbrand</button>
-    </div>-->
-    <table>
-        <thead>
-            <tr>
-                <th>CarID</th>
-                <th>CarBrandID</th>
-                <th>LicensePlateNumber</th>
-                <th>Year</th>
-                <th>Type</th>
-                <th>PerformanceInHP</th>
-                <th>CarBrand Name</th>
-                <th>Actions</th>
-
-
-
-            </tr>
-
-        </thead>
-        <tbody id="carsarea">
-        </tbody>
-    </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="carsscript.js"></script>

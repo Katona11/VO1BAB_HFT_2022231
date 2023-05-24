@@ -15,7 +15,7 @@ th,td {
 }
 
 thead {
-    background-color: lightblue;
+    background-color: white;
     font-weight: bold;
 }
 #formdiv {
@@ -73,4 +73,28 @@ header a {
         color: black;
         margin: 10px;
         
+        
  }
+header a:hover {
+        font-size: 20px;
+        margin-right: 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: red;
+        margin: 10px;
+}
+
+h1{
+    text-align:center;
+    font-size: 40px;
+}
+.container {
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: 10px;
+    border: 2px solid black;
+}
+
+.container div {
+    padding: 10px;
+}
